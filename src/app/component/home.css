@@ -1,0 +1,44 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow: hidden;
+}
+.main__space{
+    display: flex;
+
+    }
+.main__text{
+    position: absolute;
+    color: black;
+    width: 100%;
+    padding-top: 240px;
+}
+.title__main__page{
+    color: black;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.subTitle__main__page{
+    color: black;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.btn__main__order{
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 10px;
+    color: white;
+    width: 175px;
+    height: 50px;
+
+    background: #F44A25;
+    border-radius: 25px;
+}
+.main__photo{
+    height:750px;
+    border-radius: 10%;
+    margin-left: 50px;
+   }
