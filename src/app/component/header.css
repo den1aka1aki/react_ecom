@@ -37,20 +37,7 @@ p{
     top: 0;
     left: 0;
     z-index: 1000;
-
 }
-
-.header.fixed{
-    height: auto;
-    position: fixed;
-    background-color: #31344e;
-}
-.header.fixed .header__inner{
-    padding: 15px 0;
-    border-bottom: 0;
-
-}
-
 .header__inner{
     display: flex;
     justify-content: space-between;
@@ -62,6 +49,8 @@ p{
 ================*/
 
 .nav{
+    position: center;
+    padding-left: 30px;
     display: flex;
     font-size: 13px;
     font-weight: 400;
