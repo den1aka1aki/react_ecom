@@ -31,7 +31,7 @@ const Footer = () => {
                     </div>
 
                     <div className="footer__block">
-                        <h4 className="footer__title">About ActiveBox</h4>
+                        <h4 className="footer__title">About Us</h4>
                         <div className="footer__text">
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.
                             </p>
