@@ -2,6 +2,7 @@ import React from 'react';
 import mainImg from '../img/pizza-margherita.svg';
 import pizzaImg from '../img/pizza.jpg';
 import './home.css';
+import Footer from './footer';
 
 const Home = () => {
     return (
@@ -39,7 +40,29 @@ const Home = () => {
                     <h5 className='card__pizza__price__tag'>25$</h5>
                     <button className='card__pizza__cart__btn'>ADD TO CART</button>
                 </div>
+                <div className='card__pizza'>
+                    <img className='card__pizza__img' alt='' src={pizzaImg}/>
+                    <h4 className='card__pizza__title'>Cheese Lovers</h4>
+                    <p className='card__pizza__discription'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h5 className='card__pizza__price__tag'>25$</h5>
+                    <button className='card__pizza__cart__btn'>ADD TO CARD</button>
+                </div>
+                <div className='card__pizza'>
+                    <img className='card__pizza__img' alt='' src={pizzaImg}/>
+                    <h4 className='card__pizza__title'>Cheese Lovers</h4>
+                    <p className='card__pizza__discription'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h5 className='card__pizza__price__tag'>25$</h5>
+                    <button className='card__pizza__cart__btn'>ADD TO CARD</button>
+                </div>
+                <div className='card__pizza'>
+                    <img className='card__pizza__img' alt='' src={pizzaImg}/>
+                    <h4 className='card__pizza__title'>Cheese Lovers</h4>
+                    <p className='card__pizza__discription'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <h5 className='card__pizza__price__tag'>25$</h5>
+                    <button className='card__pizza__cart__btn'>ADD TO CARD</button>
+                </div>
             </div>
+            <Footer/>
         </div>
     );
 };

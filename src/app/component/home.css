@@ -1,8 +1,9 @@
 .container{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding-left:20px;
+    padding-right:20px;
     overflow: hidden;
 }
 .main__space{
@@ -55,21 +56,25 @@
 }
 .cards__placeholder{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .card__pizza{
+    margin-right: 20px;
+    margin-bottom: 50px;
     box-shadow: 13px 9px 20px -10px rgba(244,74,37,0.6);
     text-align: center;
     width: 290px;
     height: 530px;
-    margin-bottom: 350px;
     border: 1px solid #BDBDBD;
     border-radius: 5%;
     overflow: hidden;
+    transition: transform .2s linear;
 }
-.card__pizza:last-child{
-    margin-right: 10px;
+.card__pizza:hover{
+    transform: translate3d(-10px, -10px,0);
 }
+
 .card__pizza__img{
     height: 290px;
     width: 290px;
