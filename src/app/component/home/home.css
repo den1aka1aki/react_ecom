@@ -40,10 +40,10 @@
     border-radius: 25px;
 }
 .main__photo{
-    height:750px;
+    height:760px;
     border-radius: 10%;
-    margin-left: 50px;
-   }
+    padding-left: 30px;
+}
 .main__top__text{
     text-align: center;
     font-family: 'Fira Sans', serif;

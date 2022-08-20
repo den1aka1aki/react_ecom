@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './app/component/header';
+import Header from './app/component/header/header';
 import { Route, Switch } from 'react-router-dom';
-import Home from './app/component/home';
+import Home from './app/component/home/home';
 import Menu from './app/component/menu';
 import Delivery from './app/component/delivery';
 import About from './app/component/about';
