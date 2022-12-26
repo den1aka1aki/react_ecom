@@ -4,6 +4,8 @@ const config = require('config')
 const chalk = require('chalk')
 const initDatabase = require('./startUp/initDatabase')
 
+mongoose.set('strictQuery', false);
+
 const app = express();
 const PORT = config.get('port') ?? 3000
 app.use(express.json())
