@@ -3,25 +3,28 @@ import Pizza from './pizza';
 import Footer from './footer/footer';
 import GroupList from './common/groupList';
 import './home/home.css';
-import api from '../api';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../store/pizzaSlice';
 
 const Menu = () => {
     const types = ['red', 'white', 'vegetarian'];
     const [selectedPizza, setSelectedPizza] = useState();
     const [searchQuery, setSearchQuery] = useState('');
-    const [pizza, setPizza] = useState([]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadPizzasList());
+    }, []);
+    const pizza = useSelector(getPizzas());
+    const pizzasLoading = useSelector(getPizzasLoadingStatus());
     const clearFilter = () => {
         setSelectedPizza();
         setSearchQuery('');
     };
-    useEffect(() => {
-        api.pizzas.fetchAll().then((data) => setPizza(data));
-    }, []);
     const handleSearchQuery = ({ target }) => {
         setSelectedPizza(undefined);
         setSearchQuery(target.value);
     };
-    if (pizza) {
+    if (pizza && !pizzasLoading) {
         function filterPizza (data) {
             const filteredPizza = searchQuery
                 ? data.filter(
