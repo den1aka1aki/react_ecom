@@ -20,8 +20,8 @@ const initialState = localStorageService.getAccessToken()
         isLoggedIn: false
     };
 
-const managerSlice = createSlice({
-    name: 'manager',
+const userSlice = createSlice({
+    name: 'user',
     initialState,
     reducers: {
         usersRequested: (state) => {
@@ -64,7 +64,7 @@ const managerSlice = createSlice({
     }
 });
 
-const { reducer: managersReducer, actions } = managerSlice;
+const { reducer: userReducer, actions } = userSlice;
 const { authRequestedSuccess, authRequestedFailed, userLoggedOut } = actions;
 
 const authRequested = createAction('users/authRequested');
@@ -74,13 +74,12 @@ export const login = ({ payload, redirect }) => async (dispatch) => {
     dispatch(authRequested());
     try {
         const data = await authService.logIn({ email, password });
-        dispatch(authRequestedSuccess({ userId: data.localId }));
         localStorageService.setTokens(data);
+        dispatch(authRequestedSuccess({ userId: data.userId }));
         history.push(redirect);
     } catch (error) {
         const { code, message } = error.response.data.error;
         if (code === 400) {
-            console.log(code);
             const errorMessage = generetaAuthError(message);
             dispatch(authRequestedFailed(errorMessage));
         } else {
@@ -88,12 +87,23 @@ export const login = ({ payload, redirect }) => async (dispatch) => {
         }
     }
 };
-export const logOut = () => (dispatch) => {
+
+export const signUp = (payload) => async (dispatch) => {
+    dispatch(authRequested());
+    try {
+        const data = await authService.register(payload);
+        localStorageService.setTokens(data);
+        dispatch(authRequestedSuccess({ userId: data.userId }));
+        history.push('/');
+    } catch (error) {
+        dispatch(authRequestedFailed(error.message));
+    }
+}; export const logOut = () => (dispatch) => {
     localStorageService.removeAuthData();
     dispatch(userLoggedOut());
     history.push('/');
 };
-export const getAuthErrors = () => (state) => state.manager.error;
-export const getIsLoggedIn = () => (state) => state.manager.isLoggedIn;
+export const getAuthErrors = () => (state) => state.user.error;
+export const getIsLoggedIn = () => (state) => state.user.isLoggedIn;
 
-export default managersReducer;
+export default userReducer;

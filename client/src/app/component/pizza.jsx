@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../store/manager';
+import { getIsLoggedIn } from '../store/user';
 import { addToCar, getTotals } from '../store/basketSlice';
 
 const Pizza = ({ pizza }) => {

@@ -6,7 +6,7 @@ import './header.css';
 import logo from '../../img/pizza.png';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../../store/manager';
+import { getIsLoggedIn } from '../../store/user';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);

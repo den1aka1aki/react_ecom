@@ -49,7 +49,7 @@ try{
 }
 }])
 
-router.post('/sighInWithPassword', [
+router.post('/signInWithPassword', [
     check('email', 'Email некорректный').normalizeEmail().isEmail(),
     check('password', 'Пароль не может быть пустым').exists(),
     async (req, res) =>{
