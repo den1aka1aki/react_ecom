@@ -41,6 +41,7 @@ export const loadPizzasList = () => async (dispatch) => {
 export const getPizzas = () => (state) => state.pizza.entities;
 export const getPizzasLoadingStatus = () => (state) => state.pizza.isLoading;
 export const getDataStatus = () => (state) => state.pizza.dataLoaded;
+export const getCurrentPizzaId = () => (state) => state.pizza.pizzaId;
 export const getPizzasById = (id) => (state) => {
     if (state.pizza.entities) {
         return state.pizza.entities.find((p) => p._id === id);

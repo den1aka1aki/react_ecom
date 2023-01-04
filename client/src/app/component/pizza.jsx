@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../store/user';
 import { addToCar, getTotals } from '../store/basketSlice';
+import { Link } from 'react-router-dom';
 
 const Pizza = ({ pizza }) => {
     const isLoggedIn = useSelector(getIsLoggedIn());
@@ -14,11 +15,14 @@ const Pizza = ({ pizza }) => {
     useEffect(() => {
         dispatch(getTotals());
     }, [cart, dispatch]);
+
     return (
         <>
             <div key={pizza._id} className='card__pizza'>
                 <img className='card__pizza__img' alt='' src={pizza.img}/>
-                <h4 className='card__pizza__title'>{pizza.name}</h4>
+                <Link to = {`/pizza/${pizza._id}`}>
+                    <h4 className='card__pizza__title'>{pizza.name}</h4>
+                </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
                 <div className={isLoggedIn ? 'btn__manager__space' : null}>

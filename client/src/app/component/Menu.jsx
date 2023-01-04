@@ -93,7 +93,7 @@ const Menu = () => {
                         <div className='cards__placeholder'>
 
                             {filteredPizza.map((piz) => (
-                                <Pizza key={piz._id} pizza ={piz}/>
+                                <Pizza key={piz._id} pizza ={piz}></Pizza>
                             ))}
                         </div>
                     </div>

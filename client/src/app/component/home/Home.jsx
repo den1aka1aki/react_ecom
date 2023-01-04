@@ -26,7 +26,7 @@ const Home = () => {
                     <div className='cards__placeholder'>
                         {pizza.map((piz) => (
                             piz.vote >= 4
-                                ? <Pizza key={piz._id} pizza ={piz}/>
+                                ? <Pizza key={piz._id} pizza ={piz}></Pizza>
                                 : null
                         ))}
                     </div>

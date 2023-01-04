@@ -9,6 +9,7 @@ import Login from './app/layouts/login';
 import LogOut from './app/component/logOut';
 import cart from './app/component/cart';
 import PizzaLoader from './app/component/pizzaLoader';
+import PizzaSpecification from './app/component/pizzaPage/pizzaSpecification';
 
 function App () {
     return (
@@ -18,6 +19,7 @@ function App () {
                 <Switch>
                     <Route exact path ='/' component={Home}/>
                     <Route path ='/menu' component={Menu}/>
+                    <Route path = '/pizza/:pizzaId?' component={PizzaSpecification}/>
                     <Route path ='/delivery' component={Delivery}/>
                     <Route path = '/logout' component={LogOut}/>
                     <Route path='/manager' component={Manager}/>
