@@ -4,7 +4,8 @@ import pizzaService from '../services/pizza.service';
 const initialState = {
     entities: null,
     isLoading: false,
-    error: null
+    error: null,
+    dataLoaded: false
 };
 const pizzaSlice = createSlice({
     name: 'pizza',
@@ -15,6 +16,7 @@ const pizzaSlice = createSlice({
         },
         pizzasReceved: (state, action) => {
             state.entities = action.payload;
+            state.dataLoaded = true;
             state.isLoading = false;
         },
         pizzasRequestFiled: (state, action) => {
@@ -27,7 +29,7 @@ const pizzaSlice = createSlice({
 const { reducer: pizzaReducer, actions } = pizzaSlice;
 const { pizzasRequested, pizzasReceved, pizzasRequestFiled } = actions;
 
-export const loadPizzasList = () => async (dispatch, getState) => {
+export const loadPizzasList = () => async (dispatch) => {
     dispatch(pizzasRequested());
     try {
         const { content } = await pizzaService.get();
@@ -38,6 +40,7 @@ export const loadPizzasList = () => async (dispatch, getState) => {
 };
 export const getPizzas = () => (state) => state.pizza.entities;
 export const getPizzasLoadingStatus = () => (state) => state.pizza.isLoading;
+export const getDataStatus = () => (state) => state.pizza.dataLoaded;
 export const getPizzasById = (id) => (state) => {
     if (state.pizza.entities) {
         return state.pizza.entities.find((p) => p._id === id);

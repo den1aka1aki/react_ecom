@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import mainImg from '../../img/pizza-margherita.svg';
 import './home.css';
 import Footer from '../footer/footer';
 import Pizza from '../pizza';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../../store/pizzaSlice';
-// import api from '../../api';
+import { useSelector } from 'react-redux';
+import { getPizzas } from '../../store/pizzaSlice';
+
 const Home = () => {
-    // const [pizza, setPizza] = useState([]);
-    // useEffect(() => {
-    //     api.pizzas.fetchAll().then((data) => setPizza(data));
-    // }, []);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(loadPizzasList());
-    }, []);
     const pizza = useSelector(getPizzas());
-    const pizzasLoading = useSelector(getPizzasLoadingStatus());
     return (
         <>
-            {pizza && !pizzasLoading && (
+            {pizza && (
                 <div className='container'>
                     <div className='main__space'>
                         <div className='main__text'>

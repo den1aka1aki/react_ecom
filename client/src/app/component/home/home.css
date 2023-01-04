@@ -77,9 +77,10 @@
 }
 
 .card__pizza__img{
-    height: 290px;
+    height: 255px;
     width: 290px;
     margin-bottom: 5px;
+
    }
 .card__pizza__title{
     font-family: 'Fira Sans', serif;
