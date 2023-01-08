@@ -103,7 +103,26 @@ export const signUp = (payload) => async (dispatch) => {
     dispatch(userLoggedOut());
     history.push('/');
 };
+// export const getCurrentUserData = () => (state) => {
+//     return state.user.entities
+//         ? state.user.entities.find((u) => u._id === state.user.auth.userId)
+//         : null;
+// };
+// export const getUserById = (userId) => (state) => {
+//     if (state.user.entities) {
+//         return state.user.entities.find((u) => u._id === userId);
+//     }
+// };
+export const getCurrentUser = () => (state) => {
+    return state.users.entities && state.users.isLoggedIn
+        ? state.users.entities.find(
+            (user) => user._id === state.users.auth.userId
+        )
+        : null;
+};
 export const getAuthErrors = () => (state) => state.user.error;
+export const getIsLoading = () => (state) => state.users.isLoading;
+// export const getCurrentUserId = () => (state) => state.user.auth.userId;
 export const getIsLoggedIn = () => (state) => state.user.isLoggedIn;
 
 export default userReducer;

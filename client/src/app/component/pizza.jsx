@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../store/user';
 import { addToCar, getTotals } from '../store/basketSlice';
 import { Link } from 'react-router-dom';
 
 const Pizza = ({ pizza }) => {
-    const isLoggedIn = useSelector(getIsLoggedIn());
     const dispatch = useDispatch();
     const handleAddToCart = (product) => {
         dispatch(addToCar(product));
@@ -25,16 +23,10 @@ const Pizza = ({ pizza }) => {
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
-                <div className={isLoggedIn ? 'btn__manager__space' : null}>
-                    <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
-                    {isLoggedIn
-                        ? <button className='change_btn'>
-                            <i className='bi bi-gear'></i>
-                        </button>
-                        : null
-                    }
-                </div>
+                <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
+
             </div>
+
         </>
     );
 };

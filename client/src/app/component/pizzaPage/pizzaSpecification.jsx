@@ -16,7 +16,6 @@ const PizzaSpecification = () => {
     useEffect(() => {
         dispatch(getTotals());
     }, [cart, dispatch]);
-    console.log({ pizza });
     return (
         <>
             <div className="container">

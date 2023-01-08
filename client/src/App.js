@@ -10,6 +10,7 @@ import LogOut from './app/component/logOut';
 import cart from './app/component/cart';
 import PizzaLoader from './app/component/pizzaLoader';
 import PizzaSpecification from './app/component/pizzaPage/pizzaSpecification';
+import ProtectedRoute from './app/component/common/protectedRoute';
 
 function App () {
     return (
@@ -25,6 +26,8 @@ function App () {
                     <Route path='/manager' component={Manager}/>
                     <Route path ='/login' component={Login}/>
                     <Route path ='/cart' component={cart}/>
+                    <ProtectedRoute path='/admin' component = {Manager}
+                    />
                 </Switch>
             </PizzaLoader>
         </>

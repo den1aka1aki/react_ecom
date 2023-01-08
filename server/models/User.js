@@ -4,6 +4,7 @@ const schema = new Schema({
     name: {type: String},
     email: {type: String, required: true, unique: true},
     password: {type: String},
+    isAdmin: { type: String},
 }, {
     timestamps:true
 })
