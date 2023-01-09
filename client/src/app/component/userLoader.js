@@ -1,22 +1,22 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDataStatus, loadPizzasList } from '../store/slices/pizzaSlice';
+import { getDataStatus, loadUsersList } from '../store/slices/userSlice';
 
-const PizzaLoader = ({ children }) => {
+const UsersLoader = ({ children }) => {
     const dataStatus = useSelector(getDataStatus());
     const dispatch = useDispatch();
     useEffect(() => {
-        if (!dataStatus) dispatch(loadPizzasList());
+        if (!dataStatus) dispatch(loadUsersList());
     }, []);
-    if (!dataStatus) return 'Loading';
+    if (!dataStatus) return 'Loading users';
     return children;
 };
 
-PizzaLoader.propTypes = {
+UsersLoader.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ])
 };
-export default PizzaLoader;
+export default UsersLoader;

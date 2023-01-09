@@ -4,7 +4,7 @@ import './home.css';
 import Footer from '../footer/footer';
 import Pizza from '../pizza';
 import { useSelector } from 'react-redux';
-import { getPizzas } from '../../store/pizzaSlice';
+import { getPizzas } from '../../store/slices/pizzaSlice';
 
 const Home = () => {
     const pizza = useSelector(getPizzas());

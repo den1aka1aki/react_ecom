@@ -4,7 +4,7 @@ import CheckBoxField from './common/form/checkBoxField';
 import TextField from './common/form/textField';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAuthErrors, login } from '../store/user';
+import { getAuthErrors, login } from '../store/slices/userSlice';
 
 const LoginForm = () => {
     const dispatch = useDispatch();

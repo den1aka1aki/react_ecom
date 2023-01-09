@@ -11,6 +11,8 @@ import cart from './app/component/cart';
 import PizzaLoader from './app/component/pizzaLoader';
 import PizzaSpecification from './app/component/pizzaPage/pizzaSpecification';
 import ProtectedRoute from './app/component/common/protectedRoute';
+import About from './app/component/About';
+import UsersLoader from './app/component/userLoader';
 
 function App () {
     return (
@@ -22,12 +24,15 @@ function App () {
                     <Route path ='/menu' component={Menu}/>
                     <Route path = '/pizza/:pizzaId?' component={PizzaSpecification}/>
                     <Route path ='/delivery' component={Delivery}/>
+                    <Route path ='/about' component={About}/>
                     <Route path = '/logout' component={LogOut}/>
                     <Route path='/manager' component={Manager}/>
                     <Route path ='/login' component={Login}/>
                     <Route path ='/cart' component={cart}/>
-                    <ProtectedRoute path='/admin' component = {Manager}
-                    />
+                    <UsersLoader>
+                        <ProtectedRoute isAdmin={true} path='/admin' component = {Manager}/>
+                    </UsersLoader>
+
                 </Switch>
             </PizzaLoader>
         </>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { validator } from '../utils/validator';
 import TextField from '../component/common/form/textField';
 import { useDispatch } from 'react-redux';
-import { signUp } from '../store/user';
+import { signUp } from '../store/slices/userSlice';
 const RegisterForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '', name: '', licence: false });

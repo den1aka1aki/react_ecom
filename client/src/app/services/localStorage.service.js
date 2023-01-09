@@ -27,7 +27,7 @@ export function removeAuthData () {
     localStorage.removeItem(REFRESH_KEY);
     localStorage.removeItem(EXPIRES_KEY);
 }
-export function getUserID () {
+export function getUserId () {
     return localStorage.getItem(USERID_KEY);
 }
 
@@ -36,7 +36,7 @@ const localStorageService = {
     getAccessToken,
     getRefreshToken,
     getExpiresDate,
-    getUserID,
+    getUserId,
     removeAuthData
 };
 

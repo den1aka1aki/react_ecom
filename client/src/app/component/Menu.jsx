@@ -4,7 +4,7 @@ import Footer from './footer/footer';
 import GroupList from './common/groupList';
 import './home/home.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../store/pizzaSlice';
+import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../store/slices/pizzaSlice';
 
 const Menu = () => {
     const types = ['red', 'white', 'vegetarian'];

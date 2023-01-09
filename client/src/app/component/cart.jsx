@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     addToCar, clearCart, decreaseCart,
     getTotals, removeFromCart
-} from '../store/basketSlice';
+} from '../store/slices/basketSlice';
 
 import { Link } from 'react-router-dom';
 

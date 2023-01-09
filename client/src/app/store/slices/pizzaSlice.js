@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import pizzaService from '../services/pizza.service';
+import pizzaService from '../../services/pizza.service';
 
 const initialState = {
     entities: null,

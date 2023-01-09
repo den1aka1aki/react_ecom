@@ -1,36 +1,43 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { getCurrentUser, getIsLoading, getIsLoggedIn } from '../../store/user';
-const ProtectedRoute = ({ children, isAdmin, to = '/login/signin' }) => {
-    const isLoading = useSelector(getIsLoading());
+import { getCurrentUserData, getIsLoading, getIsLoggedIn } from '../../store/slices/userSlice';
+const ProtectedRoute = ({ component: Component, children, ...rest }) => {
     const isLoggedIn = useSelector(getIsLoggedIn());
-    const currentUser = useSelector(getCurrentUser());
-
-    if (!isLoading) {
-        if (isLoggedIn) {
-            if (isAdmin) {
-                if (currentUser.isAdmin) {
-                    return children;
+    const isLoading = useSelector(getIsLoading());
+    const currentUser = useSelector(getCurrentUserData());
+    console.log('isLoading ' + isLoading);
+    console.log('isLoggedIn ' + isLoggedIn);
+    console.log('currentUser ' + currentUser);
+    return (
+        <Route
+            {...rest}
+            render={(props) => {
+                if (!isLoggedIn) {
+                    return (
+                        <Redirect
+                            to={{
+                                pathname: '/',
+                                state: {
+                                    from: props.location
+                                }
+                            }}
+                        />
+                    );
                 }
-            } else {
-                return children;
-            }
-        }
-        return <Redirect
-            to={{
-                pathname: '/'
+                return Component ? <Component {...props} /> : children;
             }}
-        />;
-    }
+        />
+    );
 };
 ProtectedRoute.propTypes = {
+    component: PropTypes.func,
+    location: PropTypes.object,
     children: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.arrayOf(PropTypes.node)
-    ]).isRequired,
-    isAdmin: PropTypes.bool,
-    to: PropTypes.string
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])
 };
+
 export default ProtectedRoute;

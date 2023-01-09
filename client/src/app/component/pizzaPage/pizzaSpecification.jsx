@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import './pizzaSpecification.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzasById } from '../../store/pizzaSlice';
-import { addToCar, getTotals } from '../../store/basketSlice';
+import { getPizzasById } from '../../store/slices/pizzaSlice';
+import { addToCar, getTotals } from '../../store/slices/basketSlice';
 
 const PizzaSpecification = () => {
     const params = useParams();

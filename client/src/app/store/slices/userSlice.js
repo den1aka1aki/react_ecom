@@ -1,23 +1,26 @@
-import localStorageService from '../services/localStorage.service';
+import localStorageService from '../../services/localStorage.service';
 import { createAction, createSlice } from '@reduxjs/toolkit';
-import { generetaAuthError } from '../utils/generetaAuthError';
-import authService from '../services/auth.service';
-import history from '../utils/history';
+import { generetaAuthError } from '../../utils/generetaAuthError';
+import authService from '../../services/auth.service';
+import history from '../../utils/history';
+import userService from '../../services/user.service';
 
 const initialState = localStorageService.getAccessToken()
     ? {
         entities: null,
         isLoading: true,
         error: null,
-        auth: { userId: localStorageService.getUserID() },
-        isLoggedIn: true
+        auth: { userId: localStorageService.getUserId() },
+        isLoggedIn: true,
+        dataLoaded: false
     }
     : {
         entities: null,
         isLoading: false,
         error: null,
         auth: null,
-        isLoggedIn: false
+        isLoggedIn: false,
+        dataLoaded: false
     };
 
 const userSlice = createSlice({
@@ -33,6 +36,10 @@ const userSlice = createSlice({
             state.isLoading = false;
         },
         usersRequestedFailed: (state, action) => {
+            state.error = action.payload;
+            state.isLoading = false;
+        },
+        usersRequestFiled: (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
         },
@@ -56,7 +63,9 @@ const userSlice = createSlice({
             state.dataLoaded = false;
         },
         userUpdateSuccessed: (state, action) => {
-            state.entities[state.entities.findIndex(u => u._id === action.payload._id)] = action.payload;
+            state.entities[
+                state.entities.findIndex((u) => u._id === action.payload._id)
+            ] = action.payload;
         },
         authRequested: (state) => {
             state.error = null;
@@ -65,7 +74,7 @@ const userSlice = createSlice({
 });
 
 const { reducer: userReducer, actions } = userSlice;
-const { authRequestedSuccess, authRequestedFailed, userLoggedOut } = actions;
+const { authRequestedSuccess, usersRequested, usersReceived, usersRequestFiled, authRequestedFailed, userLoggedOut } = actions;
 
 const authRequested = createAction('users/authRequested');
 
@@ -103,26 +112,23 @@ export const signUp = (payload) => async (dispatch) => {
     dispatch(userLoggedOut());
     history.push('/');
 };
-// export const getCurrentUserData = () => (state) => {
-//     return state.user.entities
-//         ? state.user.entities.find((u) => u._id === state.user.auth.userId)
-//         : null;
-// };
-// export const getUserById = (userId) => (state) => {
-//     if (state.user.entities) {
-//         return state.user.entities.find((u) => u._id === userId);
-//     }
-// };
-export const getCurrentUser = () => (state) => {
-    return state.users.entities && state.users.isLoggedIn
-        ? state.users.entities.find(
-            (user) => user._id === state.users.auth.userId
-        )
+export const loadUsersList = () => async (dispatch) => {
+    dispatch(usersRequested());
+    try {
+        const { content } = await userService.get();
+        dispatch(usersReceived(content));
+    } catch (error) {
+        dispatch(usersRequestFiled(error.message));
+    }
+};
+export const getCurrentUserData = () => (state) => {
+    return state.user.entities
+        ? state.user.entities.find((u) => u._id === state.user.auth.userId)
         : null;
 };
+export const getDataStatus = () => (state) => state.user.dataLoaded;
 export const getAuthErrors = () => (state) => state.user.error;
-export const getIsLoading = () => (state) => state.users.isLoading;
-// export const getCurrentUserId = () => (state) => state.user.auth.userId;
+export const getIsLoading = () => (state) => state.user.isLoading;
 export const getIsLoggedIn = () => (state) => state.user.isLoggedIn;
 
 export default userReducer;
