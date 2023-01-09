@@ -9,24 +9,29 @@ const ProtectedRoute = ({ component: Component, children, ...rest }) => {
     const currentUser = useSelector(getCurrentUserData());
     console.log('isLoading ' + isLoading);
     console.log('isLoggedIn ' + isLoggedIn);
-    console.log('currentUser ' + currentUser);
+    console.log('currentUser ' + currentUser.isAdmin);
     return (
         <Route
             {...rest}
             render={(props) => {
-                if (!isLoggedIn) {
-                    return (
-                        <Redirect
-                            to={{
-                                pathname: '/',
-                                state: {
-                                    from: props.location
-                                }
-                            }}
-                        />
-                    );
+                if (!isLoading) {
+                    if (isLoggedIn) {
+                        if (!currentUser.isAdmin) {
+                            return (
+                                <Redirect
+                                    to={{
+                                        pathname: '/',
+                                        state: {
+                                            from: props.location
+                                        }
+                                    }}
+                                />
+
+                            );
+                        }
+                    }
+                    return Component ? <Component {...props} /> : children;
                 }
-                return Component ? <Component {...props} /> : children;
             }}
         />
     );

@@ -3,7 +3,7 @@ const User = require('../models/User')
 const auth = require('../middleware/auth.middleware')
 const router = express.Router({mergeParams: true})
 
-router.patch('/:userId',auth, async(req, res) => {
+router.patch('/:userId', async(req, res) => {
     try{
         const { userId } = req.params
         if(userId === req.user._id){
@@ -19,7 +19,7 @@ router.patch('/:userId',auth, async(req, res) => {
     }
 })
 
-router.get('/', auth,  async(req, res) => {
+router.get('/', async(req, res) => {
   try{
       const list = await User.find()
       res.send(list)
