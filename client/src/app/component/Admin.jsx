@@ -1,12 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPizzas, removePizza } from '../store/slices/pizzaSlice';
+import { useHistory } from 'react-router-dom';
 
 const Admin = () => {
     const pizza = useSelector(getPizzas());
     const dispatch = useDispatch();
+    const history = useHistory();
     const handleRemovePizza = (id) => {
         dispatch(removePizza(id));
+    };
+    const handleEdit = (id) => {
+        console.log(id);
+        history.push(`/edit/${id}`);
     };
     return (
         <>
@@ -26,7 +32,7 @@ const Admin = () => {
                                             </div>
                                         </div>
                                         <div className="cart-product-price">${p.price}</div>
-                                        <button className='card__pizza__cart__btn'>
+                                        <button className='card__pizza__cart__btn' onClick={() => handleEdit(p._id)}>
                                             Edit
                                         </button>
                                         <button className='card__pizza__cart__btn' onClick={() => handleRemovePizza(p._id)}>

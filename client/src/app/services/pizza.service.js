@@ -9,6 +9,13 @@ const pizzaService = {
     removePizza: async (pizzaId) => {
         const { data } = await httpService.delete(pizzaEndPoint + pizzaId);
         return data;
+    },
+    update: async (payload) => {
+        const { data } = await httpService.patch(
+            pizzaEndPoint + payload._id,
+            payload
+        );
+        return data;
     }
 };
 export default pizzaService;

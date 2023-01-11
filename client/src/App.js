@@ -13,12 +13,11 @@ import PizzaSpecification from './app/component/pizzaPage/pizzaSpecification';
 import ProtectedRoute from './app/component/common/protectedRoute';
 import About from './app/component/About';
 import UsersLoader from './app/component/userLoader';
-
+import EditPizzaPage from './app/component/EditPizzaPage';
 function App () {
     return (
         <>
             <PizzaLoader>
-
                 <Header/>
                 <Switch>
                     <Route exact path ='/' component={Home}/>
@@ -30,9 +29,12 @@ function App () {
                     <Route path='/manager' component={Admin}/>
                     <Route path ='/login' component={Login}/>
                     <Route path ='/cart' component={cart}/>
+
                     <UsersLoader>
                         <ProtectedRoute isAdmin={true} path='/admin' component = {Admin}/>
+                        <ProtectedRoute isAdmin={true} path='/edit/:pizzaId?' component={EditPizzaPage}/>
                     </UsersLoader>
+
                 </Switch>
 
             </PizzaLoader>
