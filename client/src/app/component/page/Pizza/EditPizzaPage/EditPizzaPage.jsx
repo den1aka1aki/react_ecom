@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzasById, updatePizza } from '../store/slices/pizzaSlice';
-import TextField from './common/form/textField';
-import { validator } from '../utils/validator';
-// import { useSelector } from 'react-redux';
-// import { getPizzasById } from '../store/slices/pizzaSlice';
+import { getPizzasById, updatePizza } from '../../../../store/slices/pizzaSlice';
+import TextField from '../../../common/form/textField';
+import { validator } from '../../../../utils/validator';
 
 const EditPizzaPage = () => {
     const [isLoading, setIsLoading] = useState(true);

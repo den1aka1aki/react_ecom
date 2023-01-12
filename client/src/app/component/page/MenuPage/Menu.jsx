@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Pizza from './pizza';
-import Footer from './footer/footer';
-import GroupList from './common/groupList';
-import './home/home.css';
+import Pizza from '../Pizza/Pizzas/pizza';
+import Footer from '../../ui/footer/footer';
+import GroupList from '../../common/groupList';
+import './menu.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../store/slices/pizzaSlice';
+import { getPizzas, getPizzasLoadingStatus, loadPizzasList } from '../../../store/slices/pizzaSlice';
 
 const Menu = () => {
     const types = ['red', 'white', 'vegetarian'];

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzas, removePizza } from '../store/slices/pizzaSlice';
+import { getPizzas, removePizza } from '../../../store/slices/pizzaSlice';
 import { useHistory } from 'react-router-dom';
 
 const Admin = () => {
