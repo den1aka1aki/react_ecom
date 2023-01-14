@@ -14,6 +14,7 @@ import ProtectedRoute from './app/component/common/protectedRoute';
 import About from './app/component/page/AboutPage/About';
 import UsersLoader from './app/component/ui/hoc/userLoader';
 import EditPizzaPage from './app/component/page/Pizza/EditPizzaPage/EditPizzaPage';
+import AddNewPizzaForm from './app/component/page/AddNewPizza/addNewPizzaForm';
 function App () {
     return (
         <>
@@ -32,6 +33,7 @@ function App () {
 
                     <UsersLoader>
                         <ProtectedRoute isAdmin={true} path='/admin' component = {Admin}/>
+                        <ProtectedRoute isAdmin={true} path='/addNewPizza' component = {AddNewPizzaForm}/>
                         <ProtectedRoute isAdmin={true} path='/edit/:pizzaId?' component={EditPizzaPage}/>
                     </UsersLoader>
 

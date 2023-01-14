@@ -38,6 +38,7 @@ const { reducer: pizzaReducer, actions } = pizzaSlice;
 const { pizzasRequested, pizzasReceved, pizzasRequestFiled, pizzaUpdateSuccessed, pizzaRemoved } = actions;
 const removePizzaRequested = createAction('pizza/removePizzaRequested');
 const pizzaUpdateRequested = createAction('pizza/pizzaUpdateRequested');
+const addPizzasRequested = createAction('pizza/addPizzasRequested');
 const pizzaUpdateFailed = createAction('pizza/pizzaUpdateFailed');
 
 export const loadPizzasList = () => async (dispatch) => {
@@ -56,6 +57,16 @@ export const removePizza = (pizzaId) => async (dispatch) => {
         if (!content) {
             dispatch(pizzaRemoved(pizzaId));
         }
+    } catch (error) {
+        dispatch(pizzasRequestFiled(error.message));
+    }
+};
+
+export const addPizza = (payload) => async (dispatch, getState) => {
+    dispatch(addPizzasRequested());
+    try {
+        const { content } = await pizzaService.createPizza(payload);
+        dispatch(pizzasReceved(content));
     } catch (error) {
         dispatch(pizzasRequestFiled(error.message));
     }

@@ -16,6 +16,11 @@ const pizzaService = {
             payload
         );
         return data;
+    },
+    createPizza: async (payload) => {
+        const { data } = await httpService.post(pizzaEndPoint, payload);
+        return data;
     }
+
 };
 export default pizzaService;

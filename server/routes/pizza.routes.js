@@ -1,6 +1,5 @@
 const express = require('express')
 const Pizza = require('../models/Pizza')
-const User = require('../models/User')
 const router = express.Router({mergeParams: true})
 
 router.get('/', async (req, res)=>{
@@ -40,6 +39,17 @@ router.delete('/:pizzaId',async (req, res) => {
         } else {
             res.status(401).json({message: 'Unauthorized'})
         }
+    } catch (e) {
+        res.status(500).json({
+            message: 'На сервере произошла ошибка. Попробуйте позже'
+        })
+    }
+})
+router.post('/',async (req, res) => {
+    try {
+        const newPizza = await Pizza.create({
+            ...req.body})
+        res.status(201).send(newPizza)
     } catch (e) {
         res.status(500).json({
             message: 'На сервере произошла ошибка. Попробуйте позже'
