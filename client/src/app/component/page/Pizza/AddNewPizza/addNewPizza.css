@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color:#6c7279;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+p{
+    margin: 0 0 10px;
+}
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding-left:20px;
+    padding-right:20px;
+    overflow: hidden;
+}
+.main__space{
+    display: flex;
+    margin-bottom: 30px;
+
+}
+
+.editPizzaPage_form {
+    position: center;
+    width: 50%;
+    padding: 12px 20px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.addNewPizzaPage_btn{
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    height: 50px;
+    background: #F44A25;
+    border-radius: 25px;
+    transition: color .2s linear, background .2s linear;
+}
+.addNewPizzaPage_btn:hover{
+    color: #F44A25;
+    background-color: white;
+}
+

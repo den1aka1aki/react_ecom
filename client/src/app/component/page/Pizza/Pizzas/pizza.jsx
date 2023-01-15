@@ -19,7 +19,7 @@ const Pizza = ({ pizza }) => {
         <>
             <div key={pizza._id} className='card__pizza'>
                 <img className='card__pizza__img' alt='' src={pizza.img}/>
-                <Link to = {`/pizza/${pizza._id}`}>
+                <Link className = 'card__pizza__link' to = {`/pizza/${pizza._id}`}>
                     <h4 className='card__pizza__title'>{pizza.name}</h4>
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>

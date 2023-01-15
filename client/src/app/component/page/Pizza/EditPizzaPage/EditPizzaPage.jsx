@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPizzasById, updatePizza } from '../../../../store/slices/pizzaSlice';
 import TextField from '../../../common/form/textField';
 import { validator } from '../../../../utils/validator';
+import './editPizzaPage.css';
 
 const EditPizzaPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -58,12 +59,12 @@ const EditPizzaPage = () => {
         validate();
     }, [data]);
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-6 offset-md-3 shadow p-4">
+        <div className='container'>
+            <div className='main__space'>
+                <div className='editPizzaPage_form'>
                     {!isLoading
                         ? (
-                            <form onSubmit={handleSubmit}>
+                            <form className='' onSubmit={handleSubmit}>
                                 <TextField
                                     label="Name"
                                     name="name"
@@ -93,6 +94,13 @@ const EditPizzaPage = () => {
                                     error={errors.name}
                                 />
                                 <TextField
+                                    label="Type"
+                                    name="type"
+                                    value={data.type}
+                                    onChange={handleChange}
+                                    error={errors.name}
+                                />
+                                <TextField
                                     label="Image"
                                     name="img"
                                     value={data.img}
@@ -102,7 +110,7 @@ const EditPizzaPage = () => {
                                 <button
                                     type="submit"
                                     disabled={!isValid}
-                                    className="btn btn-primary w-100 mx-auto"
+                                    className="editPage_btn"
                                 >
                 Обновить
                                 </button>

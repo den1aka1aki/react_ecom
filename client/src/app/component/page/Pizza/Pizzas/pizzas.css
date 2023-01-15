@@ -3,6 +3,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.card__pizza__link{
+    text-decoration: none;
+   }
+.card__pizza__title:hover {
+    color: #F44A25;
+}
 .card__pizza{
     margin-top: 15px;
     margin-right: 20px;
@@ -15,9 +21,6 @@
     border-radius: 5%;
     overflow: hidden;
     transition: transform .2s linear;
-}
-.card__pizza:hover{
-    transform: translate3d(-10px, -10px,0);
 }
 
 .card__pizza__img{
@@ -34,6 +37,10 @@
     line-height: 32px;
     color: #000000;
     margin-bottom: 5px;
+    transition: color .1s linear;
+}
+.card__pizza:hover{
+    transform: translate3d(-10px, -10px,0);
 }
 .card__pizza__discription{
     font-style: italic;
@@ -59,4 +66,9 @@
     height: 50px;
     background: #F44A25;
     border-radius: 25px;
+    transition: color .2s linear, background .2s linear;
+}
+.card__pizza__cart__btn:hover{
+    color: #F44A25;
+    background-color: white;
 }

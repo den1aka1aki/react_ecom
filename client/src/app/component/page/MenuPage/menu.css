@@ -85,3 +85,7 @@ p{
     background: #F44A25;
     border-radius: 25px;
 }
+.adminPage_btn:hover{
+    color: #F44A25;
+    background-color: white;
+}

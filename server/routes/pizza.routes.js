@@ -45,9 +45,9 @@ router.delete('/:pizzaId',async (req, res) => {
         })
     }
 })
-router.post(async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        console.log(req.body)
+               console.log(req.body)
         const newPizza = await Pizza.create({
             ...req.body})
         res.status(201).send(newPizza)

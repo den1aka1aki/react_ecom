@@ -14,7 +14,7 @@ import ProtectedRoute from './app/component/common/protectedRoute';
 import About from './app/component/page/AboutPage/About';
 import UsersLoader from './app/component/ui/hoc/userLoader';
 import EditPizzaPage from './app/component/page/Pizza/EditPizzaPage/EditPizzaPage';
-import AddNewPizzaForm from './app/component/page/AddNewPizza/addNewPizzaForm';
+import AddNewPizzaForm from './app/component/page/Pizza/AddNewPizza/addNewPizzaForm';
 function App () {
     return (
         <>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import TextField from '../../common/form/textField';
-import { validator } from '../../../utils/validator';
+import TextField from '../../../common/form/textField';
+import { validator } from '../../../../utils/validator';
 import { useDispatch } from 'react-redux';
-import { addPizza } from '../../../store/slices/pizzaSlice';
+import { addPizza } from '../../../../store/slices/pizzaSlice';
+import './addNewPizza.css';
 
 const AddNewPizzaForm = () => {
     const dispatch = useDispatch();
@@ -53,8 +54,8 @@ const AddNewPizzaForm = () => {
     };
     return (
         <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-6 offset-md-3 shadow p-4">
+            <div className="main__space">
+                <div className="addNewPizza_form">
                     <form onSubmit={handleSubmit}>
                         <TextField
                             label="Name"
@@ -85,6 +86,13 @@ const AddNewPizzaForm = () => {
                             error={errors.name}
                         />
                         <TextField
+                            label="Type"
+                            name="type"
+                            value={data.type}
+                            onChange={handleChange}
+                            error={errors.name}
+                        />
+                        <TextField
                             label="Image"
                             name="img"
                             value={data.img}
@@ -94,9 +102,9 @@ const AddNewPizzaForm = () => {
                         <button
                             type="submit"
                             disabled={!isValid}
-                            className="btn btn-primary w-100 mx-auto"
+                            className="addNewPizzaPage_btn"
                         >
-                                 Создать
+                                 Create
                         </button>
                     </form>
                 </div>
