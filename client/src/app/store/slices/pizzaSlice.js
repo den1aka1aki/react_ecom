@@ -64,6 +64,7 @@ export const removePizza = (pizzaId) => async (dispatch) => {
 
 export const addPizza = (payload) => async (dispatch, getState) => {
     dispatch(addPizzasRequested());
+    console.log(payload);
     try {
         const { content } = await pizzaService.createPizza(payload);
         dispatch(pizzasReceved(content));
