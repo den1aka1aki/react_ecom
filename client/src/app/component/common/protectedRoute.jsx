@@ -1,38 +1,27 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { getCurrentUserData, getIsLoading, getIsLoggedIn } from '../../store/slices/userSlice';
+import { getIsLoggedIn } from '../../store/slices/userSlice';
 const ProtectedRoute = ({ component: Component, children, ...rest }) => {
     const isLoggedIn = useSelector(getIsLoggedIn());
-    const isLoading = useSelector(getIsLoading());
-    const currentUser = useSelector(getCurrentUserData());
-    console.log('isLoading ' + isLoading);
     console.log('isLoggedIn ' + isLoggedIn);
-    console.log('currentUser ' + currentUser.isAdmin);
     return (
-        <Route
-            {...rest}
-            render={(props) => {
-                if (!isLoading) {
-                    if (isLoggedIn) {
-                        if (!currentUser.isAdmin) {
-                            return (
-                                <Redirect
-                                    to={{
-                                        pathname: '/',
-                                        state: {
-                                            from: props.location
-                                        }
-                                    }}
-                                />
-
-                            );
-                        }
-                    }
-                    return Component ? <Component {...props} /> : children;
-                }
-            }}
+        <Route {...rest} render={(props) => {
+            if (!isLoggedIn) {
+                return (
+                    <Redirect
+                        to={{
+                            pathname: '/login',
+                            state: {
+                                from: props.location
+                            }
+                        }}
+                    />
+                );
+            }
+            return Component ? <Component {...props} /> : children;
+        }}
         />
     );
 };

@@ -6,11 +6,15 @@ import './header.css';
 import logo from '../../../img/pizza.png';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../../../store/slices/userSlice';
+import { getIsLoggedIn, getUserById } from '../../../store/slices/userSlice';
+import localStorageService from '../../../services/localStorage.service';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);
     const isLoggedIn = useSelector(getIsLoggedIn());
+    const userId = localStorageService.getUserId();
+    const user = useSelector(getUserById(userId));
+    console.log(user);
     return (
         <header className='header'>
             <div className='container'>
@@ -20,28 +24,43 @@ const Header = () => {
                        Mondo Pizza
                     </div>
                     <NavBar/>
-                    <div className='header__btn__icons'>
-                        <Link to="/cart">
-                            <button className='header__btn__login'>
-                                <i className="bi bi-cart"></i>
-                                <span className="bag-quantity">
-                                    <span>{cartTotalQuantity}</span>
-                                </span>
-                            </button >
-                        </Link>
-                        {isLoggedIn
-                            ? <NavLink to='/logOut' className='nav__link'>
+
+                    {isLoggedIn
+                        ? <div className='header__btn__icons'>
+                            <h5 className='header__user__name'> Hello, {user.name} </h5>
+                            <Link to="/cart">
+                                <button className='header__btn__login'>
+                                    <i className="bi bi-cart"></i>
+                                    <span className="bag-quantity">
+                                        <span>{cartTotalQuantity}</span>
+                                    </span>
+                                </button >
+                            </Link>
+                            <NavLink to='/logOut' className='nav__link'>
                                 <button className='header__btn__login'> Log Out</button>
                             </NavLink>
-                            : <NavLink to='/login' className='nav__link'>
+                        </div>
+
+                        : <div className='header__btn__icons'>
+                            <Link to="/cart">
+                                <button className='header__btn__login'>
+                                    <i className="bi bi-cart"></i>
+                                    <span className="bag-quantity">
+                                        <span>{cartTotalQuantity}</span>
+                                    </span>
+                                </button >
+                            </Link>
+                            <NavLink to='/login' className='nav__link'>
                                 <button className='header__btn__login'> Sign in</button>
                             </NavLink>
-                        }
+                        </div>
 
-                    </div>
+                    }
+
                 </div>
             </div>
         </header>
+
     );
 };
 

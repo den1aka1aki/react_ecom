@@ -6,12 +6,19 @@ export function validator (data, config) {
         case 'isRequired':{
             if (typeof data === 'boolean') {
                 statusValidate = !data;
-            } else { statusValidate = data.trim() === ''; }
+            } else {
+                statusValidate = typeof data === 'string' ? data.trim() === '' : null;
+            }
             break;
         }
         case 'isEmail':{
             const emailRegExp = /^\S+@\S+\.\S+$/g;
             statusValidate = !emailRegExp.test(data);
+            break;
+        }
+        case 'isContainLetters': {
+            const lettersRegExp = /[a-zA-Z]+/g;
+            statusValidate = !lettersRegExp.test(data);
             break;
         }
         case 'isCapitalSymbol':{
@@ -26,6 +33,11 @@ export function validator (data, config) {
         }
         case 'min':{
             statusValidate = data.length < config.value;
+            break;
+        }
+        case 'isURL': {
+            const urlRegExp = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+            statusValidate = !urlRegExp.test(data);
             break;
         }
         default:

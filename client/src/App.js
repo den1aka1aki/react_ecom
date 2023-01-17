@@ -15,30 +15,32 @@ import About from './app/component/page/AboutPage/About';
 import UsersLoader from './app/component/ui/hoc/userLoader';
 import EditPizzaPage from './app/component/page/Pizza/EditPizzaPage/EditPizzaPage';
 import AddNewPizzaForm from './app/component/page/Pizza/AddNewPizza/addNewPizzaForm';
+import AdminProtectedRouter from './app/component/common/adminProtectedRouter';
+
 function App () {
     return (
         <>
             <PizzaLoader>
-                <Header/>
-                <Switch>
-                    <Route exact path ='/' component={Home}/>
-                    <Route path ='/menu' component={Menu}/>
-                    <Route path = '/pizza/:pizzaId?' component={PizzaCard}/>
-                    <Route path ='/delivery' component={Delivery}/>
-                    <Route path ='/about' component={About}/>
-                    <Route path = '/logout' component={LogOut}/>
-                    <Route path='/manager' component={Admin}/>
-                    <Route path ='/login' component={Login}/>
-                    <Route path ='/cart' component={cart}/>
+                <UsersLoader>
+                    <Header/>
+                    <Switch>
+                        <Route exact path ='/' component={Home}/>
+                        <Route path ='/menu' component={Menu}/>
+                        <Route path = '/pizza/:pizzaId?' component={PizzaCard}/>
+                        <Route path ='/delivery' component={Delivery}/>
+                        <Route path ='/about' component={About}/>
+                        <Route path = '/logout' component={LogOut}/>
+                        <Route path ='/login' component={Login}/>
+                        <Route path ='/cart' component={cart}/>
 
-                    <UsersLoader>
-                        <ProtectedRoute isAdmin={true} path='/admin' component = {Admin}/>
-                        <ProtectedRoute isAdmin={true} path='/addNewPizza' component = {AddNewPizzaForm}/>
-                        <ProtectedRoute isAdmin={true} path='/edit/:pizzaId?' component={EditPizzaPage}/>
-                    </UsersLoader>
+                        <ProtectedRoute>
+                            <AdminProtectedRouter path='/admin' component = {Admin}/>
+                            <AdminProtectedRouter path='/addNewPizza' component = {AddNewPizzaForm}/>
+                            <AdminProtectedRouter path='/edit/:pizzaId?' component={EditPizzaPage}/>
+                        </ProtectedRoute>
 
-                </Switch>
-
+                    </Switch>
+                </UsersLoader>
             </PizzaLoader>
         </>
     );

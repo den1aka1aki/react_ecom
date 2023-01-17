@@ -4,14 +4,17 @@ import { validator } from '../../../../utils/validator';
 import { useDispatch } from 'react-redux';
 import { addPizza } from '../../../../store/slices/pizzaSlice';
 import './addNewPizza.css';
+import { useHistory } from 'react-router-dom';
 
 const AddNewPizzaForm = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [data, setData] = useState({
         name: '',
         ingredients: '',
         price: '',
         vote: '',
+        type: '',
         img: ''
     });
     const [errors, setErrors] = useState({});
@@ -24,11 +27,47 @@ const AddNewPizzaForm = () => {
     const validatorConfig = {
         name: {
             isRequired: {
-                message: 'Имя обязательно для заполнения'
+                message: 'Название пиццы обязательно для заполнения'
             },
-            min: {
-                message: 'Имя должено состаять миниму из 3 символов',
-                value: 3
+            isContainLetters: {
+                message: 'Название введено не корректно'
+            }
+        },
+        ingredients: {
+            isRequired: {
+                message: 'Поле ингредиенты обязательно для заполнения'
+            },
+            isContainLetters: {
+                message: 'Поле ингредиенты введено не корректно'
+            }
+        },
+        price: {
+            isRequired: {
+                message: 'Цена обязательна для заполнения'
+            },
+            isContainDigit: {
+                message: 'Число было введено не корректно'
+            }
+        },
+        vote: {
+            isRequired: {
+                message: 'Оценка обязательна для заполнения'
+            },
+            isContainDigit: {
+                message: 'Число было введено не корректно'
+            }
+        },
+        type: {
+            isRequired: {
+                message: 'Поле \'тип товара\' обязательно для заполнения'
+            }
+        },
+        img: {
+            isRequired: {
+                message: 'Адрес фотографии обязателен для заполнения'
+            },
+            isURL: {
+                message: 'Введенный адрес не является корректным'
             }
         }
     };
@@ -49,8 +88,10 @@ const AddNewPizzaForm = () => {
         const newData = {
             ...data
         };
-        console.log({ data });
         dispatch(addPizza(newData));
+    };
+    const handleBack = () => {
+        history.push('/admin');
     };
     return (
         <div className="container mt-5">
@@ -69,35 +110,35 @@ const AddNewPizzaForm = () => {
                             name="ingredients"
                             value={data.ingredients}
                             onChange={handleChange}
-                            error={errors.name}
+                            error={errors.ingredients}
                         />
                         <TextField
                             label="Price"
                             name="price"
                             value={data.price}
                             onChange={handleChange}
-                            error={errors.name}
+                            error={errors.price}
                         />
                         <TextField
                             label="Vote"
                             name="vote"
                             value={data.vote}
                             onChange={handleChange}
-                            error={errors.name}
+                            error={errors.vote}
                         />
                         <TextField
                             label="Type"
                             name="type"
                             value={data.type}
                             onChange={handleChange}
-                            error={errors.name}
+                            error={errors.type}
                         />
                         <TextField
                             label="Image"
                             name="img"
                             value={data.img}
                             onChange={handleChange}
-                            error={errors.name}
+                            error={errors.img}
                         />
                         <button
                             type="submit"
@@ -105,6 +146,13 @@ const AddNewPizzaForm = () => {
                             className="addNewPizzaPage_btn"
                         >
                                  Create
+                        </button>
+                        <button
+                            type="submit"
+                            className="addNewPizzaPage_btn"
+                            onClick={handleBack}
+                        >
+                            Go Back
                         </button>
                     </form>
                 </div>

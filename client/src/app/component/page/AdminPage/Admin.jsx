@@ -16,7 +16,7 @@ const Admin = () => {
         history.push(`/edit/${id}`);
     };
     const handleAdd = () => {
-        history.push('/addNewPizza');
+        history.push('/addNewPizza?');
     };
     return (
         <>
@@ -53,6 +53,7 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
+                )
         </>
     );
 };
