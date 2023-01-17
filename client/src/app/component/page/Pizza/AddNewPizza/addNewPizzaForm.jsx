@@ -89,6 +89,7 @@ const AddNewPizzaForm = () => {
             ...data
         };
         dispatch(addPizza(newData));
+        history.push('/admin');
     };
     const handleBack = () => {
         history.push('/admin');

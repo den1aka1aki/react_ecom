@@ -1,11 +1,14 @@
 import React from 'react';
 import './adminPage.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzas, removePizza } from '../../../store/slices/pizzaSlice';
+import { getDataStatus, getPizzas, removePizza } from '../../../store/slices/pizzaSlice';
 import { useHistory } from 'react-router-dom';
 
 const Admin = () => {
     const pizza = useSelector(getPizzas());
+    const pizzasStatus = useSelector(getDataStatus());
+    console.log('pizza....' + pizza);
+    console.log('pizzasStatus....' + pizzasStatus);
     const dispatch = useDispatch();
     const history = useHistory();
     const handleRemovePizza = (id) => {
@@ -20,11 +23,12 @@ const Admin = () => {
     };
     return (
         <>
+            {pizza && pizzasStatus &&
             <div className='container'>
                 <h2 className='adminPage_title'>Administration Page</h2>
                 <div className='adminPage_add_space'>
                     <button className='adminPage_add_btn' onClick={() => handleAdd()}>
-                        Add New Pizza
+                            Add New Pizza
                     </button>
                 </div>
                 <div className='main__space'>
@@ -32,7 +36,7 @@ const Admin = () => {
                         {pizza.map((p) => (
                             <div className="adminPage_item" key={p.id}>
                                 <div className="adminPage_product">
-                                    <img src={p.img} alt={p.name} />
+                                    <img src={p.img} alt={p.name}/>
                                     <div>
                                         <h3>{p.name}</h3>
                                         <p>{p.ingredients}</p>
@@ -53,7 +57,7 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
-                )
+            }
         </>
     );
 };

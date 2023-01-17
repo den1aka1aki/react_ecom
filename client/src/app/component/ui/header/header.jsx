@@ -11,23 +11,22 @@ import localStorageService from '../../../services/localStorage.service';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);
-    const isLoggedIn = useSelector(getIsLoggedIn());
     const userId = localStorageService.getUserId();
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const user = useSelector(getUserById(userId));
-    console.log(user);
     return (
         <header className='header'>
             <div className='container'>
                 <div className='header__inner'>
                     <div className='header__logo'>
                         <img alt='' className='header__logo__img' src={logo}/>
-                       Mondo Pizza
+                            Mondo Pizza
                     </div>
                     <NavBar/>
 
-                    {isLoggedIn
+                    {isLoggedIn && user
                         ? <div className='header__btn__icons'>
-                            <h5 className='header__user__name'> Hello, {user.name} </h5>
+                            <h5 className='header__user__name'> Welcome, {user.name} </h5>
                             <Link to="/cart">
                                 <button className='header__btn__login'>
                                     <i className="bi bi-cart"></i>
@@ -54,9 +53,7 @@ const Header = () => {
                                 <button className='header__btn__login'> Sign in</button>
                             </NavLink>
                         </div>
-
                     }
-
                 </div>
             </div>
         </header>

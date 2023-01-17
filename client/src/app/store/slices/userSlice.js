@@ -97,13 +97,14 @@ export const login = ({ payload, redirect }) => async (dispatch) => {
     }
 };
 
-export const signUp = (payload) => async (dispatch) => {
+export const signUp = ({ payload, redirect }) => async (dispatch) => {
+    const { email, password, name } = payload;
     dispatch(authRequested());
     try {
-        const data = await authService.register(payload);
+        const data = await authService.register({ email, password, name });
         localStorageService.setTokens(data);
         dispatch(authRequestedSuccess({ userId: data.userId }));
-        history.push('/');
+        history.push(redirect);
     } catch (error) {
         dispatch(authRequestedFailed(error.message));
     }
