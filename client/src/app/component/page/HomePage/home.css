@@ -1,0 +1,137 @@
+body{
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color:#6c7279;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+p{
+    margin: 0 0 10px;
+}
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding-left:20px;
+    padding-right:20px;
+    overflow: hidden;
+}
+.main__space{
+    display: flex;
+    margin-bottom: 30px;
+
+    }
+.main__text{
+    position: absolute;
+    color: black;
+    width: 100%;
+    padding-top: 240px;
+}
+.title__main__page{
+    color: black;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.subTitle__main__page{
+    color: black;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.btn__main__order{
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 10px;
+    color: white;
+    width: 175px;
+    height: 50px;
+
+    background: #F44A25;
+    border-radius: 25px;
+    transition: color .2s linear, background .2s linear;
+}
+.btn__main__order:hover{
+    color: #F44A25;
+    background-color: white;
+}
+
+.main__photo{
+    height:760px;
+    border-radius: 10%;
+    padding-left: 30px;
+}
+.main__top__text{
+    text-align: center;
+    font-family: 'Fira Sans', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 74px;
+    color: #333333;
+    margin-bottom: 50px;
+}
+
+.search_bar{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #F44A25;
+}
+.category_group{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 10px;
+}
+
+.category_title{
+
+    font-family: 'Fira Sans', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.list-group{
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.list-group-item{
+
+}
+.list-group-item:hover{
+    color: white;
+   background-color: #F44A25;
+}
+.list-group-item.active{
+    background-color: #F44A25;
+}
+
+.change_btn{
+    text-transform: uppercase;
+    color: white;
+    width: 175px;
+    height: 50px;
+    background: #F44A25;
+    border-radius: 25px;
+    position: center;
+
+}
+.btn__manager__space{
+    display: flex;
+    justify-content: space-between;
+
+}

@@ -17,13 +17,13 @@ const Footer = () => {
                     <div className="footer__block">
                         <h4 className="footer__title">Share with Love</h4>
                         <div className="social social--footer">
-                            <a className="social__item" href="client/src/app/component/footer/footer#" target="_blank">
+                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
                                 <i className="bi bi-facebook"></i>
                             </a>
-                            <a className="social__item" href="client/src/app/component/footer/footer#" target="_blank">
+                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
                                 <i className="bi bi-twitter"></i>
                             </a>
-                            <a className="social__item" href="client/src/app/component/footer/footer#" target="_blank">
+                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
                                 <i className="bi bi-instagram"></i>
                             </a>
                         </div>

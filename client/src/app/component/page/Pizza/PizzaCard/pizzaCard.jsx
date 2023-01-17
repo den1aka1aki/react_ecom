@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import './pizzaSpecification.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPizzasById } from '../../store/slices/pizzaSlice';
-import { addToCar, getTotals } from '../../store/slices/basketSlice';
+import { getPizzasById } from '../../../../store/slices/pizzaSlice';
+import { addToCar, getTotals } from '../../../../store/slices/basketSlice';
 
-const PizzaSpecification = () => {
+const PizzaCard = () => {
     const params = useParams();
     const dispatch = useDispatch();
     const pizza = useSelector(getPizzasById(params.pizzaId));
@@ -41,4 +41,4 @@ const PizzaSpecification = () => {
     );
 };
 
-export default PizzaSpecification;
+export default PizzaCard;

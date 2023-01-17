@@ -3,8 +3,10 @@ import { validator } from '../utils/validator';
 import TextField from '../component/common/form/textField';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../store/slices/userSlice';
+import { useHistory } from 'react-router-dom';
 const RegisterForm = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [data, setData] = useState({ email: '', password: '', name: '', licence: false });
     const [errors, setErrors] = useState({});
     const handleChange = (target) => {
@@ -52,8 +54,11 @@ const RegisterForm = () => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
+        const redirect = history.location.state
+            ? history.location.state.from.pathname
+            : '/';
         const newData = { ...data };
-        dispatch(signUp(newData));
+        dispatch(signUp({ payload: newData, redirect }));
     };
     return (
         <form onSubmit={handleSubmit}>

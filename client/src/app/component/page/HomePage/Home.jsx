@@ -1,10 +1,10 @@
 import React from 'react';
-import mainImg from '../../img/pizza-margherita.svg';
+import mainImg from '../../../img/pizza-margherita.svg';
 import './home.css';
-import Footer from '../footer/footer';
-import Pizza from '../pizza';
+import Footer from '../../ui/footer/footer';
+import Pizza from '../Pizza/Pizzas/pizza';
 import { useSelector } from 'react-redux';
-import { getPizzas } from '../../store/slices/pizzaSlice';
+import { getPizzas } from '../../../store/slices/pizzaSlice';
 
 const Home = () => {
     const pizza = useSelector(getPizzas());
