@@ -8,7 +8,7 @@ const PizzaLoader = ({ children }) => {
     const dispatch = useDispatch();
     useEffect(() => {
         if (!dataStatus) dispatch(loadPizzasList());
-    }, [dataStatus]);
+    });
     if (!dataStatus) return 'Loading';
     return children;
 };

@@ -14,10 +14,13 @@ const pizzaSlice = createSlice({
         pizzasRequested: (state) => {
             state.isLoading = true;
         },
-        pizzasReceved: (state, action) => {
+        pizzasReceived: (state, action) => {
             state.entities = action.payload;
             state.dataLoaded = true;
             state.isLoading = false;
+        },
+        addedPizzaReceived: (state, action) => {
+            state.entities.push(action.payload);
         },
         pizzasRequestFiled: (state, action) => {
             state.error = action.payload;
@@ -35,7 +38,7 @@ const pizzaSlice = createSlice({
 });
 
 const { reducer: pizzaReducer, actions } = pizzaSlice;
-const { pizzasRequested, pizzasReceved, pizzasRequestFiled, pizzaUpdateSuccessed, pizzaRemoved } = actions;
+const { pizzasRequested, pizzasReceived, pizzasRequestFiled, addedPizzaReceived, pizzaUpdateSuccessed, pizzaRemoved } = actions;
 const removePizzaRequested = createAction('pizza/removePizzaRequested');
 const pizzaUpdateRequested = createAction('pizza/pizzaUpdateRequested');
 const addPizzasRequested = createAction('pizza/addPizzasRequested');
@@ -45,7 +48,7 @@ export const loadPizzasList = () => async (dispatch) => {
     dispatch(pizzasRequested());
     try {
         const { content } = await pizzaService.get();
-        dispatch(pizzasReceved(content));
+        dispatch(pizzasReceived(content));
     } catch (error) {
         dispatch(pizzasRequestFiled(error.message));
     }
@@ -66,7 +69,7 @@ export const addPizza = (payload) => async (dispatch, getState) => {
     dispatch(addPizzasRequested());
     try {
         const { content } = await pizzaService.createPizza(payload);
-        dispatch(pizzasReceved(content));
+        dispatch(addedPizzaReceived(content));
     } catch (error) {
         dispatch(pizzasRequestFiled(error.message));
     }

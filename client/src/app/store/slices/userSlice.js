@@ -77,6 +77,8 @@ const { reducer: userReducer, actions } = userSlice;
 const { authRequestedSuccess, usersRequested, usersReceived, usersRequestFiled, authRequestedFailed, userLoggedOut } = actions;
 
 const authRequested = createAction('users/authRequested');
+// const userCreateRequested = createAction('user/userCreateRequested');
+// const createUserFailed = createAction('user/createUserFailed');
 
 export const login = ({ payload, redirect }) => async (dispatch) => {
     const { email, password } = payload;
@@ -97,18 +99,41 @@ export const login = ({ payload, redirect }) => async (dispatch) => {
     }
 };
 
-export const signUp = ({ payload, redirect }) => async (dispatch) => {
-    const { email, password, name } = payload;
+export const signUp = (payload) => async (dispatch) => {
     dispatch(authRequested());
     try {
-        const data = await authService.register({ email, password, name });
+        const data = await authService.register(payload);
         localStorageService.setTokens(data);
         dispatch(authRequestedSuccess({ userId: data.userId }));
-        history.push(redirect);
+        history.push('/');
     } catch (error) {
         dispatch(authRequestedFailed(error.message));
     }
-}; export const logOut = () => (dispatch) => {
+};
+// export const signUp = (payload) => async (dispatch) => {
+//     dispatch(authRequested());
+//     try {
+//         const data = await authService.register(payload);
+//         localStorageService.setTokens(data);
+//         dispatch(authRequestedSuccess({ userId: data.userId }));
+//         dispatch(createUser({ payload }));
+//         history.push('/');
+//     } catch (error) {
+//         dispatch(authRequestedFailed(error.message));
+//     }
+// };
+// function createUser (payload) {
+//     return async function (dispatch) {
+//         dispatch(userCreateRequested());
+//         try {
+//             const { content } = await userService.create(payload);
+//             dispatch(userCreated(content));
+//         } catch (error) {
+//             dispatch(createUserFailed(error.message));
+//         }
+//     };
+// }
+export const logOut = () => (dispatch) => {
     localStorageService.removeAuthData();
     dispatch(userLoggedOut());
     history.push('/');
