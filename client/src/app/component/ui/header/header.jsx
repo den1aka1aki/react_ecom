@@ -11,9 +11,8 @@ import localStorageService from '../../../services/localStorage.service';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);
-    const userId = localStorageService.getUserId();
     const isLoggedIn = useSelector(getIsLoggedIn());
-    const user = useSelector(getUserById(userId));
+    const user = useSelector(getUserById(localStorageService.getUserId()));
     return (
         <header className='header'>
             <div className='container'>
