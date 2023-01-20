@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addPizza } from '../../../../store/slices/pizzaSlice';
 import './addNewPizza.css';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddNewPizzaForm = () => {
     const history = useHistory();
@@ -94,6 +95,16 @@ const AddNewPizzaForm = () => {
     const handleBack = () => {
         history.push('/admin');
     };
+    const notify = () => toast.success('Added new product', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+    }); ;
     return (
         <div className="container mt-5">
             <div className="main__space">
@@ -145,6 +156,7 @@ const AddNewPizzaForm = () => {
                             type="submit"
                             disabled={!isValid}
                             className="addNewPizzaPage_btn"
+                            onClick={notify}
                         >
                                  Create
                         </button>

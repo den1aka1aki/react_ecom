@@ -5,6 +5,7 @@ import { getPizzasById, updatePizza } from '../../../../store/slices/pizzaSlice'
 import TextField from '../../../common/form/textField';
 import { validator } from '../../../../utils/validator';
 import './editPizzaPage.css';
+import { toast } from 'react-toastify';
 
 const EditPizzaPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -102,6 +103,16 @@ const EditPizzaPage = () => {
     useEffect(() => {
         validate();
     }, [data]);
+    const notify = () => toast.warning('Product was refreshed', {
+        position: 'top-left',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+    });
     return (
         <div className='container'>
             <div className='main__space'>
@@ -155,6 +166,7 @@ const EditPizzaPage = () => {
                                     type="submit"
                                     disabled={!isValid}
                                     className="editPage_btn"
+                                    onClick={notify}
                                 >
                                     Refresh
                                 </button>

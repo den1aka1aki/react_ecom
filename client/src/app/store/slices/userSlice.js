@@ -110,6 +110,15 @@ export const signUp = (payload) => async (dispatch) => {
         dispatch(authRequestedFailed(error.message));
     }
 };
+
+export const getCurrentUser = () => (state) => {
+    return state.user.entities && state.user.isLoggedIn
+        ? state.user.entities.find(
+            (user) => user._id === state.user.auth.userId
+        )
+        : null;
+};
+
 // export const signUp = (payload) => async (dispatch) => {
 //     dispatch(authRequested());
 //     try {

@@ -3,15 +3,15 @@ import './adminPage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataStatus, getPizzas, removePizza } from '../../../store/slices/pizzaSlice';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Admin = () => {
     const pizza = useSelector(getPizzas());
     const pizzasStatus = useSelector(getDataStatus());
-    console.log('pizza....' + pizza);
-    console.log('pizzasStatus....' + pizzasStatus);
     const dispatch = useDispatch();
     const history = useHistory();
     const handleRemovePizza = (id) => {
+        notify();
         dispatch(removePizza(id));
     };
     const handleEdit = (id) => {
@@ -21,6 +21,16 @@ const Admin = () => {
     const handleAdd = () => {
         history.push('/addNewPizza?');
     };
+    const notify = () => toast.error('Product was deleted', {
+        position: 'top-left',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+    });
     return (
         <>
             {pizza && pizzasStatus &&
@@ -47,7 +57,7 @@ const Admin = () => {
                                     <button className='adminPage_btn' onClick={() => handleEdit(p._id)}>
                                             Edit
                                     </button>
-                                    <button className='adminPage_btn' onClick={() => handleRemovePizza(p._id)}>
+                                    <button className='adminPage_btn' onClick={() => handleRemovePizza(p._id)} >
                                             Delete
                                     </button>
                                 </div>

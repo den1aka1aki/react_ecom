@@ -5,6 +5,7 @@ import TextField from './common/form/textField';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAuthErrors, login } from '../store/slices/userSlice';
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -67,7 +68,18 @@ const LoginForm = () => {
             : '/';
         dispatch(login({ payload: data, redirect }));
     };
+    const notify = () => toast.success('Welcome back', {
+        position: 'top-left',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+    });
     return (
+
         <form onSubmit={handleSubmit} >
             <TextField
                 label = 'Электронная почта'
@@ -86,7 +98,8 @@ const LoginForm = () => {
             />
             <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>Оставаться в системе</CheckBoxField>
             {loginError && <p className="text-danger">{loginError}</p>}
-            <button className='btn btn-primary w-100 mx-auto' type='submit' disabled={!isValid}>Submit</button>
+            <button className='btn btn-primary w-100 mx-auto' type='submit' onClick={notify} disabled={!isValid}>Submit</button>
+
         </form>
     );
 };
