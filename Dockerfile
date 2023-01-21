@@ -11,6 +11,6 @@ WORKDIR /app
 COPY server/package.json /app
 RUN npm install
 COPY server /app
-COPY --from=client /app/client/built /app/client
-EXPOSE 3000
+COPY --from=client /app/client/build /app/client
+EXPOSE 3001
 CMD ["npm", "start"]
