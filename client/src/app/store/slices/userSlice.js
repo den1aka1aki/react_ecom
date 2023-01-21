@@ -4,6 +4,7 @@ import { generetaAuthError } from '../../utils/generetaAuthError';
 import authService from '../../services/auth.service';
 import history from '../../utils/history';
 import userService from '../../services/user.service';
+import { toast } from 'react-toastify';
 
 const initialState = localStorageService.getAccessToken()
     ? {
@@ -77,8 +78,6 @@ const { reducer: userReducer, actions } = userSlice;
 const { authRequestedSuccess, usersRequested, usersReceived, usersRequestFiled, authRequestedFailed, userLoggedOut } = actions;
 
 const authRequested = createAction('users/authRequested');
-// const userCreateRequested = createAction('user/userCreateRequested');
-// const createUserFailed = createAction('user/createUserFailed');
 
 export const login = ({ payload, redirect }) => async (dispatch) => {
     const { email, password } = payload;
@@ -87,14 +86,44 @@ export const login = ({ payload, redirect }) => async (dispatch) => {
         const data = await authService.logIn({ email, password });
         localStorageService.setTokens(data);
         dispatch(authRequestedSuccess({ userId: data.userId }));
+        toast.success('Welcome', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+        });
         history.push(redirect);
     } catch (error) {
         const { code, message } = error.response.data.error;
         if (code === 400) {
             const errorMessage = generetaAuthError(message);
             dispatch(authRequestedFailed(errorMessage));
+            toast.error(errorMessage, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'colored'
+            });
         } else {
             dispatch(authRequestedFailed(error.message));
+            toast.error(error.message, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'colored'
+            });
         }
     }
 };
@@ -105,9 +134,31 @@ export const signUp = (payload) => async (dispatch) => {
         const data = await authService.register(payload);
         localStorageService.setTokens(data);
         dispatch(authRequestedSuccess({ userId: data.userId }));
+        toast.success('Welcome', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+        });
         history.push('/');
     } catch (error) {
-        dispatch(authRequestedFailed(error.message));
+        const { message } = error.response.data.error;
+        const errorMessage = generetaAuthError(message);
+        dispatch(authRequestedFailed(errorMessage));
+        toast.error(errorMessage, {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
     }
 };
 
@@ -119,29 +170,6 @@ export const getCurrentUser = () => (state) => {
         : null;
 };
 
-// export const signUp = (payload) => async (dispatch) => {
-//     dispatch(authRequested());
-//     try {
-//         const data = await authService.register(payload);
-//         localStorageService.setTokens(data);
-//         dispatch(authRequestedSuccess({ userId: data.userId }));
-//         dispatch(createUser({ payload }));
-//         history.push('/');
-//     } catch (error) {
-//         dispatch(authRequestedFailed(error.message));
-//     }
-// };
-// function createUser (payload) {
-//     return async function (dispatch) {
-//         dispatch(userCreateRequested());
-//         try {
-//             const { content } = await userService.create(payload);
-//             dispatch(userCreated(content));
-//         } catch (error) {
-//             dispatch(createUserFailed(error.message));
-//         }
-//     };
-// }
 export const logOut = () => (dispatch) => {
     localStorageService.removeAuthData();
     dispatch(userLoggedOut());

@@ -3,7 +3,6 @@ import { validator } from '../utils/validator';
 import TextField from '../component/common/form/textField';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../store/slices/userSlice';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -57,16 +56,6 @@ const RegisterForm = () => {
         const newData = { ...data };
         dispatch(signUp(newData));
     };
-    const notify = () => toast.success(' Welcome, ' + data.name, {
-        position: 'top-left',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-    }); ;
     return (
         <form onSubmit={handleSubmit}>
             <TextField
@@ -91,7 +80,7 @@ const RegisterForm = () => {
                 onChange = {handleChange}
                 error = {errors.password}
             />
-            <button className='btn btn-primary w-100 mx-auto' type='submit' onClick={notify} disabled={!isValid}>Submit</button>
+            <button className='btn btn-primary w-100 mx-auto ' type='submit' disabled={!isValid}>Submit</button>
         </form>
     );
 };
