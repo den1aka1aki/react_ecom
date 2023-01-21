@@ -35,7 +35,14 @@ p{
     background-color: #F44A25;
     color: white;
     cursor: pointer;
+    transition: color .2s linear, background .2s linear, border .2s linear
 }
+.dropbtn:hover{
+    background-color: #f9f9f9;
+    color:#F44A25;
+    border: 0.5px solid rgb(244, 74, 37);
+}
+
 
 .dropbtn:hover, .dropbtn:focus {
 
@@ -84,6 +91,12 @@ p{
     height: 35px;
     background: #F44A25;
     border-radius: 25px;
+    transition: color .2s linear, background .2s linear, border .2s linear
+}
+.card__pizza__cart__btn__search_space:hover{
+    background-color: #f9f9f9;
+    color:#F44A25;
+    border: 0.5px solid rgb(244, 74, 37);
 }
 .adminPage_btn:hover{
     color: #F44A25;

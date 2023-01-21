@@ -1,0 +1,6 @@
+{
+  "port" : 8080,
+  "mongoUri": "mongodb+srv://ldenis:ldenis29091989@cluster0.tewq6fl.mongodb.net/ecomDb?retryWrites=true&w=majority",
+  "accessSecret": "Super secret from backend",
+  "refreshSecret": "Super refresh key"
+}

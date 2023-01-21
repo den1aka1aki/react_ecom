@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import backArrow from '../../../img/arrow-left.png';
 import './cart.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    addToCar, clearCart, decreaseCart,
-    getTotals, removeFromCart
-} from '../../../store/slices/basketSlice';
-
-import { Link } from 'react-router-dom';
+import { addToCar, clearCart, decreaseCart, getTotals, removeFromCart } from '../../../store/slices/basketSlice';
+import { Link, NavLink } from 'react-router-dom';
+import { getIsLoggedIn } from '../../../store/slices/userSlice';
 
 const Cart = () => {
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -32,7 +30,7 @@ const Cart = () => {
     return (
         <div className="container">
             <div className="cart-container">
-                <h2>Shopping Cart</h2>
+                <h2 className='cart_container_main_title'>Shopping Cart</h2>
                 {cart.cartItems.length === 0
                     ? (
                         <div className="cart-empty">
@@ -90,7 +88,12 @@ const Cart = () => {
                                         <span>Total</span>
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
-                                    <button >Check out</button>
+                                    {isLoggedIn
+                                        ? <button className='cart_checkout_btn'>Check out</button>
+                                        : <NavLink to='/login'>
+                                            <button className='cart_checkout_btn'> Sign in to Proceed </button>
+                                        </NavLink>}
+
                                     <div className="continue-shopping">
                                         <Link to="/menu">
                                             <img className='cart_arrows' src={backArrow} alt=""/>

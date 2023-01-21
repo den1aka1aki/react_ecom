@@ -17,9 +17,7 @@ h1, h2, h3, h4, h5, h6{
 p{
     margin: 0 0 10px;
 }
-/*Container
 
-================*/
 .container{
     width: 100%;
     max-width: 1200px;
@@ -28,9 +26,6 @@ p{
 }
 
 
-/*HEADER
-
-================*/
 .header{
     width: 100%;
     height: 100px;
@@ -52,9 +47,6 @@ p{
 .header__logo{
     font-size: 40px;
 }
-/*Navigation
-
-================*/
 
 .nav{
     position: center;
@@ -63,7 +55,6 @@ p{
     font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
-
 }
 .nav__link{
 
@@ -74,7 +65,6 @@ p{
     position: relative;
     text-decoration: none;
     transition: color 0.1s linear;
-
 }
 .nav__link.active{
     color:#F44A25;
@@ -109,6 +99,12 @@ p{
     height: 35px;
     background: #F44A25;
     border-radius: 25px;
+    transition: color .2s linear, background .2s linear, border .2s linear
+}
+.header__btn__login:hover{
+    background-color: #f9f9f9;
+    color:#F44A25;
+    border: 0.5px solid rgb(244, 74, 37);
 }
 .header__btn__icons{
     display: flex;

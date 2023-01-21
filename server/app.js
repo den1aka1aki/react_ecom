@@ -10,18 +10,26 @@ const routes = require('./routes')
 mongoose.set('strictQuery', false);
 
 const app = express();
-const PORT = config.get('port') ?? 3000
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
-// app.use(cors())
+app.use(express.urlencoded({extended: true}))
+app.use(cors())
 app.use('/api', routes)
-if (process.env.NODE_ENV === 'production'){
-    app.use('/', express.static(path.join(__dirname, 'client')))
-    const indexPath = path.join(__dirname, 'client', 'index.html')
-    app.get('*', (req, res) => {
-        res.sendFile(indexPath)
-    })
+const PORT = config.get('port') ?? 8080
+if (process.env.NODE_ENV === "production") {
+    app.use("/", express.static(path.join(__dirname, "client")));
+
+    const indexPath = path.join(__dirname, "client", "index.html");
+
+    app.get("*", (req, res) => {
+        res.sendFile(indexPath);
+    });
 }
+// if (process.env.NODE_ENV === 'production') {
+//   console.log('Production')
+// } else {
+//   console.log('Development')
+// }
+
 async function start(){
     try{
         mongoose.connection.once('open', () => {
