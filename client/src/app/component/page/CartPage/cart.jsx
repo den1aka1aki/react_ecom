@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import backArrow from '../../../img/arrow-left.png';
 import './cart.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    addToCar, clearCart, decreaseCart,
-    getTotals, removeFromCart
-} from '../../../store/slices/basketSlice';
-
-import { Link } from 'react-router-dom';
+import { addToCar, clearCart, decreaseCart, getTotals, removeFromCart } from '../../../store/slices/basketSlice';
+import { Link, NavLink } from 'react-router-dom';
+import { getIsLoggedIn } from '../../../store/slices/userSlice';
 
 const Cart = () => {
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -90,7 +88,12 @@ const Cart = () => {
                                         <span>Total</span>
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
-                                    <button >Check out</button>
+                                    {isLoggedIn
+                                        ? <button >Check out</button>
+                                        : <NavLink to='/login' className='nav__link'>
+                                            <button className='header__btn__login'> Sign in</button>
+                                        </NavLink>}
+
                                     <div className="continue-shopping">
                                         <Link to="/menu">
                                             <img className='cart_arrows' src={backArrow} alt=""/>

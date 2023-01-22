@@ -16,32 +16,36 @@ import UsersLoader from './app/component/ui/hoc/userLoader';
 import EditPizzaPage from './app/component/page/Pizza/EditPizzaPage/EditPizzaPage';
 import AddNewPizzaForm from './app/component/page/Pizza/AddNewPizza/addNewPizzaForm';
 import AdminProtectedRouter from './app/component/common/adminProtectedRouter';
+import { ToastContainer } from 'react-toastify';
 
 function App () {
     return (
         <>
-            <PizzaLoader>
-                <UsersLoader>
-                    <Header/>
-                    <Switch>
-                        <Route exact path ='/' component={Home}/>
-                        <Route path ='/menu' component={Menu}/>
-                        <Route path = '/pizza/:pizzaId?' component={PizzaCard}/>
-                        <Route path ='/delivery' component={Delivery}/>
-                        <Route path ='/about' component={About}/>
-                        <Route path = '/logout' component={LogOut}/>
-                        <Route path ='/login' component={Login}/>
-                        <Route path ='/cart' component={cart}/>
+            <div>
+                <PizzaLoader>
+                    <UsersLoader>
+                        <Header/>
+                        <Switch>
+                            <Route exact path ='/' component={Home}/>
+                            <Route path ='/menu' component={Menu}/>
+                            <Route path = '/pizza/:pizzaId?' component={PizzaCard}/>
+                            <Route path ='/delivery' component={Delivery}/>
+                            <Route path ='/about' component={About}/>
+                            <Route path = '/logout' component={LogOut}/>
+                            <Route path ='/login' component={Login}/>
+                            <Route path ='/cart' component={cart}/>
 
-                        <ProtectedRoute>
-                            <AdminProtectedRouter path='/admin' component = {Admin}/>
-                            <AdminProtectedRouter path='/addNewPizza' component = {AddNewPizzaForm}/>
-                            <AdminProtectedRouter path='/edit/:pizzaId?' component={EditPizzaPage}/>
-                        </ProtectedRoute>
+                            <ProtectedRoute>
+                                <AdminProtectedRouter path='/admin' component = {Admin}/>
+                                <AdminProtectedRouter path='/addNewPizza' component = {AddNewPizzaForm}/>
+                                <AdminProtectedRouter path='/edit/:pizzaId?' component={EditPizzaPage}/>
+                            </ProtectedRoute>
 
-                    </Switch>
-                </UsersLoader>
-            </PizzaLoader>
+                        </Switch>
+                    </UsersLoader>
+                </PizzaLoader>
+                <ToastContainer/>
+            </div>
         </>
     );
 }

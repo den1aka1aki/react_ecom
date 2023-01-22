@@ -6,26 +6,23 @@ import './header.css';
 import logo from '../../../img/pizza.png';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsLoggedIn, getUserById } from '../../../store/slices/userSlice';
-import localStorageService from '../../../services/localStorage.service';
+import { getIsLoggedIn } from '../../../store/slices/userSlice';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);
     const isLoggedIn = useSelector(getIsLoggedIn());
-    const user = useSelector(getUserById(localStorageService.getUserId()));
     return (
         <header className='header'>
             <div className='container'>
                 <div className='header__inner'>
                     <div className='header__logo'>
-                        <img alt='' className='header__logo__img' src={logo}/>
+                        <img alt='logo' className='header__logo__img' src={logo}/>
                             Mondo Pizza
                     </div>
                     <NavBar/>
 
-                    {isLoggedIn && user
+                    {isLoggedIn
                         ? <div className='header__btn__icons'>
-                            <h5 className='header__user__name'> Welcome, {user.name} </h5>
                             <Link to="/cart">
                                 <button className='header__btn__login'>
                                     <i className="bi bi-cart"></i>

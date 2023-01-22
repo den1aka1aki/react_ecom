@@ -20,6 +20,9 @@ const pizzaSlice = createSlice({
             state.isLoading = false;
         },
         addedPizzaReceived: (state, action) => {
+            if (!Array.isArray(state.entities)) {
+                state.entities = [];
+            }
             state.entities.push(action.payload);
         },
         pizzasRequestFiled: (state, action) => {
