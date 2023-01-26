@@ -89,6 +89,7 @@ const Cart = () => {
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
                                     {isLoggedIn
+
                                         ? <button className='cart_checkout_btn'>Check out</button>
                                         : <NavLink to='/login'>
                                             <button className='cart_checkout_btn'> Sign in to Proceed </button>
