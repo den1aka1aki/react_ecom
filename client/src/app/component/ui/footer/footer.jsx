@@ -17,13 +17,13 @@ const Footer = () => {
                     <div className="footer__block">
                         <h4 className="footer__title">Share with Love</h4>
                         <div className="social social--footer">
-                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
+                            <a className="social__item" target="_blank">
                                 <i className="bi bi-facebook"></i>
                             </a>
-                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
+                            <a className="social__item" target="_blank">
                                 <i className="bi bi-twitter"></i>
                             </a>
-                            <a className="social__item" href="client/src/app/component/ui/footer/footer#" target="_blank">
+                            <a className="social__item" target="_blank">
                                 <i className="bi bi-instagram"></i>
                             </a>
                         </div>
@@ -44,8 +44,8 @@ const Footer = () => {
             <div className="copyright">
                 <div className="container">
                     <div className="copyright__text">
-                        <div>Copyright © 2015 ActiveBox. All Rights Reserved</div>
-                        <div> Made <span>by  Kamal Chaneman</span></div>
+                        <div>Copyright © 2015 PizzaWorld. All Rights Reserved</div>
+                        <div> Made <span>by  Denis Lavrov</span></div>
                     </div>
                 </div>
             </div>

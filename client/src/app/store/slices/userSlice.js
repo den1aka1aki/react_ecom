@@ -196,7 +196,6 @@ export const getUserById = (userId) => (state) => {
 };
 
 export const getDataStatus = () => (state) => state.user.dataLoaded;
-export const getAuthErrors = () => (state) => state.user.error;
 export const getIsLoggedIn = () => (state) => state.user.isLoggedIn;
 
 export default userReducer;

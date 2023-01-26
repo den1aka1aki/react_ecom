@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const initialState = {
     cartItems: localStorage.getItem('cartItems')
@@ -16,6 +17,16 @@ const cartSlice = createSlice({
             const itemIndex = state.cartItems.findIndex(
                 (item) => item._id === action.payload._id
             );
+            toast.success('You Added Pizza to Cart', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light'
+            });
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1;
             } else {

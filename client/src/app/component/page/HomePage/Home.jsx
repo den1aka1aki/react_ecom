@@ -11,7 +11,7 @@ const Home = () => {
     const pizza = useSelector(getPizzas());
     return (
         <>
-            {pizza && (
+            {pizza && mainImg && (
                 <div className='container'>
                     <div className='main__space'>
                         <div className='main__text'>

@@ -30,7 +30,7 @@ const Cart = () => {
     return (
         <div className="container">
             <div className="cart-container">
-                <h2>Shopping Cart</h2>
+                <h2 className='cart_container_main_title'>Shopping Cart</h2>
                 {cart.cartItems.length === 0
                     ? (
                         <div className="cart-empty">
@@ -89,9 +89,10 @@ const Cart = () => {
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
                                     {isLoggedIn
-                                        ? <button >Check out</button>
-                                        : <NavLink to='/login' className='nav__link'>
-                                            <button className='header__btn__login'> Sign in</button>
+
+                                        ? <button className='cart_checkout_btn'>Check out</button>
+                                        : <NavLink to='/login'>
+                                            <button className='cart_checkout_btn'> Sign in to Proceed </button>
                                         </NavLink>}
 
                                     <div className="continue-shopping">

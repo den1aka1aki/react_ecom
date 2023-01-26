@@ -86,7 +86,6 @@ const LoginForm = () => {
                 error = {errors.password}
             />
             <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>Оставаться в системе</CheckBoxField>
-            {/* {loginError && <p className="text-danger">{loginError}</p>} */}
             <button className='btn btn-primary w-100 mx-auto' type='submit' disabled={!isValid}>Submit</button>
 
         </form>

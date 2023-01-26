@@ -24,7 +24,7 @@ const Pizza = ({ pizza }) => {
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
-                : <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
+                <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
             </div>
 
         </>

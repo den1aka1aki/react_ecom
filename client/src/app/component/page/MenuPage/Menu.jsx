@@ -10,10 +10,6 @@ const Menu = () => {
     const types = ['red', 'white', 'vegetarian'];
     const [selectedPizza, setSelectedPizza] = useState();
     const [searchQuery, setSearchQuery] = useState('');
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(loadPizzasList());
-    // }, []);
     const pizza = useSelector(getPizzas());
     const pizzasLoading = useSelector(getPizzasLoadingStatus());
     const pizzasStatus = useSelector(getDataStatus());
@@ -54,7 +50,6 @@ const Menu = () => {
             document.getElementById('myDropdown').classList.toggle('show');
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
                 const dropdowns = document.getElementsByClassName('dropdown-content');

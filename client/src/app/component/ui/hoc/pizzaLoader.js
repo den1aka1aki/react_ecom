@@ -9,7 +9,7 @@ const PizzaLoader = ({ children }) => {
     useEffect(() => {
         if (!dataStatus) dispatch(loadPizzasList());
     });
-    if (!dataStatus) return 'Loading';
+    if (!dataStatus) return 'Loading...';
     return children;
 };
 
