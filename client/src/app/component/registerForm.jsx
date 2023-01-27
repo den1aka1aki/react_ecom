@@ -4,6 +4,7 @@ import TextField from '../component/common/form/textField';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../store/slices/userSlice';
 import 'react-toastify/dist/ReactToastify.css';
+import '../component/page/HomePage/home.css';
 const RegisterForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '', name: '', licence: false });
@@ -80,7 +81,7 @@ const RegisterForm = () => {
                 onChange = {handleChange}
                 error = {errors.password}
             />
-            <button className='btn btn-primary w-100 mx-auto ' type='submit' disabled={!isValid}>Submit</button>
+            <button className='submit_btn' type='submit' disabled={!isValid}>Submit</button>
         </form>
     );
 };

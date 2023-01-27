@@ -5,6 +5,7 @@ import TextField from './common/form/textField';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../store/slices/userSlice';
+import '../component/page/HomePage/home.css';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -86,7 +87,7 @@ const LoginForm = () => {
                 error = {errors.password}
             />
             <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>Оставаться в системе</CheckBoxField>
-            <button className='btn btn-primary w-100 mx-auto' type='submit' disabled={!isValid}>Submit</button>
+            <button className='submit_btn' type='submit' disabled={!isValid}>Submit</button>
 
         </form>
     );

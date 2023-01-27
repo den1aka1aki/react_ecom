@@ -1,5 +1,5 @@
 import React from 'react';
-import mainImg from '../../../img/pizza-margherita.svg';
+import mainImg from '../../../img/pizza-margherita.JPG';
 import './home.css';
 import Footer from '../../ui/footer/footer';
 import Pizza from '../Pizza/Pizzas/pizza';

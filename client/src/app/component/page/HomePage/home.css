@@ -135,3 +135,22 @@ p{
     justify-content: space-between;
 
 }
+.submit_btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 1.15px;
+    background-color: #F44A25;
+    color: #f9f9f9;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: color .2s linear, background .2s linear, border .2s linear
+}
+.submit_btn:hover{
+    background-color: #f9f9f9;
+    color:#F44A25;
+    border: 0.5px solid rgb(244, 74, 37);
+}
+
