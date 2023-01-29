@@ -4,11 +4,22 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCar, getTotals } from '../../../../store/slices/basketSlice';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Pizza = ({ pizza }) => {
     const dispatch = useDispatch();
     const handleAddToCart = (product) => {
         dispatch(addToCar(product));
+        toast.success('You just added pizza to your basket', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored'
+        });
     };
     const cart = useSelector((state) => state.cart);
     useEffect(() => {
