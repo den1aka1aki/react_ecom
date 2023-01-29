@@ -39,7 +39,20 @@ p{
     padding: 15px 0;
     align-items: center;
 }
+.header__logo__link{
+    text-decoration: none;
+}
+.header__logo__component{
+    display: flex;
+}
+.header__logo__title{
+    font-size: 50px;
+    color:black;
+    text-decoration: none;
+}
 .header__logo__img{
+    font-size: 15px;
+    color: black;
     margin: 10px;
     height: 40px;
     width: 40px;
@@ -97,6 +110,7 @@ p{
     gap: 10px;
     width: 75px;
     height: 35px;
+    border-color: transparent;
     background: #F44A25;
     border-radius: 25px;
     transition: color .2s linear, background .2s linear, border .2s linear

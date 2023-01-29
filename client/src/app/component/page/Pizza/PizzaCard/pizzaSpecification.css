@@ -29,6 +29,8 @@ p{
     float: left;
     height: 420px;
     width: 327px;
+    object-fit: cover;
+
 }
 
 .product-img img {

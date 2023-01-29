@@ -37,7 +37,7 @@ const Admin = () => {
             <div className='container'>
                 <h2 className='adminPage_title'>Administration Page</h2>
                 <div className='adminPage_add_space'>
-                    <button className='adminPage_add_btn' onClick={() => handleAdd()}>
+                    <button className='adminPage_btn' onClick={() => handleAdd()}>
                             Add New Pizza
                     </button>
                 </div>

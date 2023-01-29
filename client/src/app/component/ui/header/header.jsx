@@ -16,15 +16,19 @@ const Header = () => {
             <div className='container'>
                 <div className='header__inner'>
                     <div className='header__logo'>
-                        <img alt='logo' className='header__logo__img' src={logo}/>
-                            Mondo Pizza
+                        <a className='header__logo__link' href='/'>
+                            <div className='header__logo__component'>
+                                <img alt='img' className='header__logo__img' src={logo}/>
+                                <h1 className='header__logo__title'>Mondo Pizza</h1>
+                            </div>
+                        </a>
                     </div>
                     <NavBar/>
 
                     {isLoggedIn
                         ? <div className='header__btn__icons'>
                             <Link to="/cart">
-                                <button className='header__btn__login'>
+                                <button className='btn'>
                                     <i className="bi bi-cart"></i>
                                     <span className="bag-quantity">
                                         <span>{cartTotalQuantity}</span>
@@ -32,13 +36,13 @@ const Header = () => {
                                 </button >
                             </Link>
                             <NavLink to='/logOut' className='nav__link'>
-                                <button className='header__btn__login'> Log Out</button>
+                                <button className='btn'> Log Out</button>
                             </NavLink>
                         </div>
 
                         : <div className='header__btn__icons'>
                             <Link to="/cart">
-                                <button className='header__btn__login'>
+                                <button className='btn'>
                                     <i className="bi bi-cart"></i>
                                     <span className="bag-quantity">
                                         <span>{cartTotalQuantity}</span>
@@ -46,7 +50,7 @@ const Header = () => {
                                 </button >
                             </Link>
                             <NavLink to='/login' className='nav__link'>
-                                <button className='header__btn__login'> Sign in</button>
+                                <button className='btn'> Sign in</button>
                             </NavLink>
                         </div>
                     }

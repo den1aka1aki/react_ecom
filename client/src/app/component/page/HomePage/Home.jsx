@@ -15,10 +15,10 @@ const Home = () => {
                 <div className='container'>
                     <div className='main__space'>
                         <div className='main__text'>
-                            <h1 className='title__main__page'>We Have The <b>Best pizza!</b></h1>
+                            <h2 className='title__main__page'>We Have The <b>Best pizza!</b></h2>
                             <p className='subTitle__main__page'>Time to enjoy our delicious pizza.</p>
                             <Link to="/menu">
-                                <button className='btn__main__order'>Order Online</button>
+                                <button className='btn'>Order Online</button>
                             </Link>
                         </div>
                         <div className='main__img'>

@@ -22,7 +22,7 @@ const PizzaCard = () => {
                 <div className='main__space'>
                     <div className='wrapper'>
                         <div className="product-img">
-                            <img src={pizza.img} height="420" width="327"/>
+                            <img alt={'pizza_photo'} className='product-img' src={pizza.img} />
                         </div>
                         <div className="product-info">
                             <div className="product-text">
