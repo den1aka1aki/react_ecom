@@ -76,12 +76,17 @@ p{
     justify-content: space-between;
 
 }
-.search_bar{
+.search_bar {
     height: 35px;
     width: 80%;
     border-radius: 25px;
     margin: 0 48px;
+    outline: none
 }
+.search_bar:focus {
+    outline-width: 0
+}
+
 
 .card__pizza__cart__btn__search_space{
     text-transform: uppercase;
