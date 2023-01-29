@@ -73,7 +73,9 @@ const Cart = () => {
                                     <div className="cart-product">
                                         <img src={cartItem.img} alt={cartItem.name} />
                                         <div>
-                                            <h3>{cartItem.name}</h3>
+                                            <Link className = 'card__pizza__link' to={`/pizza/${cartItem._id}`}>
+                                                <h3>{cartItem.name}</h3>
+                                            </Link>
                                             <p>{cartItem.ingredients}</p>
                                             <button onClick={() => handleRemoveFromCart(cartItem)}>
                                                 Remove

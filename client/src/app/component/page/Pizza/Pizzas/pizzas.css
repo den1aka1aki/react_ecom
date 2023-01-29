@@ -5,6 +5,7 @@
 }
 .card__pizza__link{
     text-decoration: none;
+    color: #585353;
    }
 .card__pizza__title:hover {
     color: #F44A25;

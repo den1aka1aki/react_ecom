@@ -45,47 +45,47 @@ const EditPizzaPage = () => {
     const validatorConfig = {
         name: {
             isRequired: {
-                message: 'Название пиццы обязательно для заполнения'
+                message: 'Name is mandatory'
             },
             isContainLetters: {
-                message: 'Название введено не корректно'
+                message: 'Name entered not correctly'
             }
         },
         ingredients: {
             isRequired: {
-                message: 'Поле ингредиенты обязательно для заполнения'
+                message: 'Field ingredients is mandatory'
             },
             isContainLetters: {
-                message: 'Поле ингредиенты введено не корректно'
+                message: 'This field is entered not correctly'
             }
         },
         price: {
             isRequired: {
-                message: 'Цена обязательна для заполнения'
+                message: 'Price is mandatory'
             },
             isContainDigit: {
-                message: 'Число было введено не корректно'
+                message: 'Number entered not correctly'
             }
         },
         vote: {
             isRequired: {
-                message: 'Оценка обязательна для заполнения'
+                message: 'Vote is mandatory'
             },
             isContainDigit: {
-                message: 'Число было введено не корректно'
+                message: 'Number entered not correctly'
             }
         },
         type: {
             isRequired: {
-                message: 'Поле \'тип товара\' обязательно для заполнения'
+                message: 'Field \'product type\' is mandatory'
             }
         },
         img: {
             isRequired: {
-                message: 'Адрес фотографии обязателен для заполнения'
+                message: 'Field photo address is mandatory'
             },
             isURL: {
-                message: 'Введенный адрес не является корректным'
+                message: 'This field is entered not correctly'
             }
         }
     };

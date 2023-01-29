@@ -58,14 +58,14 @@ const LoginForm = () => {
 
         <form onSubmit={handleSubmit} >
             <TextField
-                label = 'Электронная почта'
+                label = 'Email'
                 name = 'email'
                 value = {data.email}
                 onChange = {handleChange}
                 error = {errors.email}
             />
             <TextField
-                label = 'Пароль'
+                label = 'Password'
                 type = 'password'
                 name = 'password'
                 value = {data.password}

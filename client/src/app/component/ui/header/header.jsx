@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './header.css';
 import logo from '../../../img/pizza.png';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../../store/slices/userSlice';
 
@@ -27,28 +27,28 @@ const Header = () => {
 
                     {isLoggedIn
                         ? <div className='header__btn__icons'>
-                            <Link to="/cart">
+                            <NavLink className='nav__link' to="/cart">
                                 <button className='btn'>
                                     <i className="bi bi-cart"></i>
                                     <span className="bag-quantity">
                                         <span>{cartTotalQuantity}</span>
                                     </span>
                                 </button >
-                            </Link>
+                            </NavLink>
                             <NavLink to='/logOut' className='nav__link'>
                                 <button className='btn'> Log Out</button>
                             </NavLink>
                         </div>
 
                         : <div className='header__btn__icons'>
-                            <Link to="/cart">
+                            <NavLink className='nav__link' to="/cart">
                                 <button className='btn'>
                                     <i className="bi bi-cart"></i>
                                     <span className="bag-quantity">
                                         <span>{cartTotalQuantity}</span>
                                     </span>
                                 </button >
-                            </Link>
+                            </NavLink>
                             <NavLink to='/login' className='nav__link'>
                                 <button className='btn'> Sign in</button>
                             </NavLink>
