@@ -9,7 +9,6 @@ import '../component/page/HomePage/home.css';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    // const loginError = useSelector(getAuthErrors());
     const [data, setData] = useState({ email: '', password: '', stayOn: false });
     const [errors, setErrors] = useState({});
     const history = useHistory();
@@ -23,29 +22,16 @@ const LoginForm = () => {
         email: {
             isRequired:
                 {
-                    message: 'Электронная почта обязательна для заполнения'
+                    message: 'Email is mandatory'
                 },
             isEmail: {
-                message: 'Email введен не верно'
+                message: 'Email is not correct'
             }
         },
         password: {
             isRequired:
                 {
-                    message: 'Пароль обязательна для заполнения'
-                },
-            isCapitalSymbol:
-                {
-                    message: 'Пароль должен содержать хотя бы одну заглавную букву'
-                },
-            isContainDigit:
-                {
-                    message: 'Пароль должен сожержать хотя бы одно число'
-                },
-            min:
-                {
-                    message: 'Пароль должен состоять минимум из 8 символов',
-                    value: 8
+                    message: 'Password is mandatory'
                 }
         }
     };

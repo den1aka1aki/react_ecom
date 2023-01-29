@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import backArrow from '../../../img/arrow-left.png';
 import './cart.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCar, clearCart, decreaseCart, getTotals, removeFromCart } from '../../../store/slices/basketSlice';
 import { Link, NavLink } from 'react-router-dom';
 import { getIsLoggedIn } from '../../../store/slices/userSlice';
+import { toast } from 'react-toastify';
+import ModalWindow from '../../common/ModalWindow/modalWindow';
 
 const Cart = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const isLoggedIn = useSelector(getIsLoggedIn());
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(getTotals());
     }, [cart, dispatch]);
@@ -26,6 +28,19 @@ const Cart = () => {
     };
     const handleClearCart = () => {
         dispatch(clearCart());
+    };
+    const handlePlaceTheOrder = () => {
+        toast.success('Thank you for your order', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light'
+        });
+        setIsOpen(true);
     };
     return (
         <div className="container">
@@ -71,7 +86,9 @@ const Cart = () => {
                                             -
                                         </button>
                                         <div className="count">{cartItem.cartQuantity}</div>
-                                        <button onClick={() => handleAddToCart(cartItem)}>+</button>
+                                        <button onClick={() => handleAddToCart(cartItem)}>
+                                            +
+                                        </button>
                                     </div>
                                     <div className="cart-product-total-price">
                                         ${cartItem.price * cartItem.cartQuantity}
@@ -81,7 +98,7 @@ const Cart = () => {
                             </div>
                             <div className="cart-summary">
                                 <button className="clear-btn" onClick={() => handleClearCart()}>
-                            Clear Cart
+                                    Clear Cart
                                 </button>
                                 <div className="cart-checkout">
                                     <div className="subtotal">
@@ -89,12 +106,11 @@ const Cart = () => {
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
                                     {isLoggedIn
-
-                                        ? <button className='cart_checkout_btn'>Check out</button>
+                                        ? <button className='cart_checkout_btn' onClick={() => handlePlaceTheOrder()}>Check Out</button>
                                         : <NavLink to='/login'>
                                             <button className='cart_checkout_btn'> Sign in to Proceed </button>
                                         </NavLink>}
-
+                                    {isOpen && <ModalWindow setIsOpen={setIsOpen} />}
                                     <div className="continue-shopping">
                                         <Link to="/menu">
                                             <img className='cart_arrows' src={backArrow} alt=""/>

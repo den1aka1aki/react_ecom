@@ -3,19 +3,25 @@ import './pizzaSpecification.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPizzasById } from '../../../../store/slices/pizzaSlice';
-import { addToCar, getTotals } from '../../../../store/slices/basketSlice';
+import { addToCar, decreaseCart, getTotals } from '../../../../store/slices/basketSlice';
 
 const PizzaCard = () => {
     const params = useParams();
     const dispatch = useDispatch();
     const pizza = useSelector(getPizzasById(params.pizzaId));
-    const handleAddToCart = (product) => {
-        dispatch(addToCar(product));
-    };
+
     const cart = useSelector((state) => state.cart);
     useEffect(() => {
         dispatch(getTotals());
     }, [cart, dispatch]);
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCar(product));
+    };
+    const handleDecreaseCart = (product) => {
+        dispatch(decreaseCart(product));
+    };
+
     return (
         <>
             <div className="container">
@@ -29,7 +35,25 @@ const PizzaCard = () => {
                                 <h1>{pizza.name}</h1>
                                 <p>{pizza.ingredients}</p>
                             </div>
-                            <div className="product-price-btn">
+
+                            {cart.cartTotalQuantity > 0
+                                ? (
+                                    <div className="product_details">
+                                        <h5>Total in Cart</h5>
+                                        <ul>
+                                            <div className="">Total amount: {cart.cartTotalQuantity}</div>
+                                            <div className="">Total Quantity: {cart.cartTotalAmount} $</div>
+                                        </ul>
+                                        <button className='btn' onClick={() => handleAddToCart(pizza)}>
+                                                +
+                                        </button>
+                                        <button className='btn' onClick={() => handleDecreaseCart(pizza)}>
+                                                -
+                                        </button>
+                                    </div>
+                                )
+                                : (null)}
+                            <div className='product-price-btn'>
                                 <p><span>{pizza.price}</span>$</p>
                                 <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
                             </div>

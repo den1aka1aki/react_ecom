@@ -19,24 +19,37 @@ const RegisterForm = () => {
         email: {
             isRequired:
                 {
-                    message: 'Электронная почта обязательна для заполнения'
+                    message: 'Email is mandatory'
                 }
         },
         name: {
             isRequired:
                 {
-                    message: 'Имя обязательна для заполнения'
+                    message: 'Name is mandatory'
                 },
             min:
                 {
-                    message: 'Имя должен состоять минимум из 3 символов',
+                    message: 'Name must be at least 3 symbols',
                     value: 3
                 }
         },
         password: {
             isRequired:
                 {
-                    message: 'Пароль обязательна для заполнения'
+                    message: 'Password is mandatory'
+                },
+            isCapitalSymbol:
+                {
+                    message: 'Password must contain at least 1 capital letter'
+                },
+            isContainDigit:
+                {
+                    message: 'Password must contain at least 1 number'
+                },
+            min:
+                {
+                    message: 'Password must contain minimum 8 symbols',
+                    value: 8
                 }
         }
     };
@@ -60,21 +73,21 @@ const RegisterForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <TextField
-                label = 'Электронная почта'
+                label = 'Email'
                 name = 'email'
                 value = {data.email}
                 onChange = {handleChange}
                 error = {errors.email}
             />
             <TextField
-                label = 'Имя'
+                label = 'Name'
                 name = 'name'
                 value = {data.name}
                 onChange = {handleChange}
                 error = {errors.name}
             />
             <TextField
-                label = 'Пароль'
+                label = 'Password'
                 type = 'password'
                 name = 'password'
                 value = {data.password}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './app/component/ui/header/header';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './app/component/page/HomePage/Home';
 import Menu from './app/component/page/MenuPage/Menu';
 import Admin from './app/component/page/AdminPage/Admin';
@@ -40,7 +40,7 @@ function App () {
                                     <Route path='/edit/:pizzaId?' component={EditPizzaPage}/>
                                 </AdminProtectedRouter>
                             </ProtectedRoute>
-
+                            <Redirect to='/'/>
                         </Switch>
                     </UsersLoader>
                 </PizzaLoader>
