@@ -5,7 +5,8 @@ const initialState = {
     entities: null,
     isLoading: false,
     error: null,
-    dataLoaded: false
+    dataLoaded: false,
+    quantityInCart: 0
 };
 const pizzaSlice = createSlice({
     name: 'pizza',

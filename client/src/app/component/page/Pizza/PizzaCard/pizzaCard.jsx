@@ -21,7 +21,7 @@ const PizzaCard = () => {
     const handleDecreaseCart = (product) => {
         dispatch(decreaseCart(product));
     };
-
+    console.log('pizzaID              ' + pizza._id);
     return (
         <>
             <div className="container">
@@ -37,20 +37,26 @@ const PizzaCard = () => {
                             </div>
 
                             {cart.cartTotalQuantity > 0
-                                ? (
-                                    <div className="product_details">
-                                        <h5>Total in Cart</h5>
-                                        <ul>
-                                            <div className="">Total amount: {cart.cartTotalQuantity}</div>
-                                            <div className="">Total Quantity: {cart.cartTotalAmount} $</div>
-                                        </ul>
-                                        <button className='btn' onClick={() => handleAddToCart(pizza)}>
+                                ? (<div>
+                                    {cart.cartItems.map((cartItem) => (
+                                        (cartItem._id === pizza._id
+                                            ? (<div className="product_details">
+                                                <h5>Total in Cart</h5>
+                                                <ul>
+                                                    <div className="">Total amount: {cart.cartTotalQuantity}</div>
+                                                    <div className="">Total Quantity: {cart.cartTotalAmount} $</div>
+                                                </ul>
+                                                <button className='btn' onClick={() => handleAddToCart(pizza)}>
                                                 +
-                                        </button>
-                                        <button className='btn' onClick={() => handleDecreaseCart(pizza)}>
+                                                </button>
+                                                <button className='btn' onClick={() => handleDecreaseCart(pizza)}>
                                                 -
-                                        </button>
-                                    </div>
+                                                </button>
+                                            </div>
+                                            )
+                                            : null)
+                                    ))}
+                                </div>
                                 )
                                 : (null)}
                             <div className='product-price-btn'>
