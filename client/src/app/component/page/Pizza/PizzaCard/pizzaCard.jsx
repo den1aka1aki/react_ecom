@@ -40,7 +40,7 @@ const PizzaCard = () => {
                                 ? (<div>
                                     {cart.cartItems.map((cartItem) => (
                                         (cartItem._id === pizza._id
-                                            ? (<div className="product_details">
+                                            ? (<div key={cartItem._id} className="product_details">
                                                 <h5>Total in Cart</h5>
                                                 <ul>
                                                     <div className="">Total amount: {cart.cartTotalQuantity}</div>

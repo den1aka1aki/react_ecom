@@ -3,10 +3,12 @@ import NavBar from '../../navBar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './header.css';
+import '../../common/Button/button.css';
 import logo from '../../../img/pizza.png';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../../store/slices/userSlice';
+import Button from '../../common/Button/button';
 
 const Header = () => {
     const { cartTotalQuantity } = useSelector((state) => state.cart);
@@ -28,29 +30,19 @@ const Header = () => {
                     {isLoggedIn
                         ? <div className='header__btn__icons'>
                             <NavLink className='nav__link' to="/cart">
-                                <button className='btn'>
-                                    <i className="bi bi-cart"></i>
-                                    <span className="bag-quantity">
-                                        <span>{cartTotalQuantity}</span>
-                                    </span>
-                                </button >
+                                <Button className='header__btn' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
                             <NavLink to='/logOut' className='nav__link'>
-                                <button className='btn'> Log Out</button>
+                                <Button className='header__btn' label={'Log Out'}></Button>
                             </NavLink>
                         </div>
 
                         : <div className='header__btn__icons'>
                             <NavLink className='nav__link' to="/cart">
-                                <button className='btn'>
-                                    <i className="bi bi-cart"></i>
-                                    <span className="bag-quantity">
-                                        <span>{cartTotalQuantity}</span>
-                                    </span>
-                                </button >
+                                <Button className='header__btn' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
                             <NavLink to='/login' className='nav__link'>
-                                <button className='btn'> Sign in</button>
+                                <Button className='header__btn' label={'Sign In'}></Button>
                             </NavLink>
                         </div>
                     }

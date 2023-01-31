@@ -26,27 +26,7 @@ p{
     overflow: hidden;
 }
 
-.dropbtn {
-    border-radius: 25px;
-    width: 150px;
-    font-size: 15px;
-    height: 35px;
-    position: center;
-    background-color: #F44A25;
-    color: white;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.dropbtn:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
 
-
-.dropbtn:hover, .dropbtn:focus {
-
-}
 
 .dropdown {
     position: relative;
@@ -77,7 +57,7 @@ p{
 
 }
 .search_bar {
-    height: 35px;
+    height: 40px;
     width: 80%;
     border-radius: 25px;
     margin: 0 48px;
