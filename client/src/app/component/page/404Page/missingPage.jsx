@@ -1,5 +1,6 @@
 import React from 'react';
 import './missingPage.css';
+import Button from '../../common/Button/button';
 
 const MissingPage = () => {
     return (
@@ -17,8 +18,7 @@ const MissingPage = () => {
                                 </h3>
 
                                 <p>Our developer is doing his best to create this page</p>
-
-                                <a href="/" className="link_404">Go to Home</a>
+                                <a href="/"><Button className='btn' label='Go to Home'/></a>
                             </div>
                         </div>
                     </div>

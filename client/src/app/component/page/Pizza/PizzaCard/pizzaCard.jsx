@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPizzasById } from '../../../../store/slices/pizzaSlice';
 import { addToCar, decreaseCart, getTotals } from '../../../../store/slices/basketSlice';
+import Button from '../../../common/Button/button';
 
 const PizzaCard = () => {
     const params = useParams();
@@ -46,12 +47,9 @@ const PizzaCard = () => {
                                                     <div className="">Total amount: {cart.cartTotalQuantity}</div>
                                                     <div className="">Total Quantity: {cart.cartTotalAmount} $</div>
                                                 </ul>
-                                                <button className='btn' onClick={() => handleAddToCart(pizza)}>
-                                                +
-                                                </button>
-                                                <button className='btn' onClick={() => handleDecreaseCart(pizza)}>
-                                                -
-                                                </button>
+                                                <Button className='btn__pizza_card' label='+' action={handleAddToCart} payload={pizza}/>
+                                                <Button className='btn__pizza_card' label='-' action={handleDecreaseCart} payload={pizza}/>
+
                                             </div>
                                             )
                                             : null)
@@ -61,7 +59,7 @@ const PizzaCard = () => {
                                 : (null)}
                             <div className='product-price-btn'>
                                 <p><span>{pizza.price}</span>$</p>
-                                <button onClick={() => handleAddToCart(pizza)} className='card__pizza__cart__btn'>ADD TO CARD</button>
+                                <Button action={handleAddToCart} payload={pizza} className='btn' label={'ADD TO CARD'}/>
                             </div>
                         </div>
                     </div>

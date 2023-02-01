@@ -7,6 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { getIsLoggedIn } from '../../../store/slices/userSlice';
 import { toast } from 'react-toastify';
 import ModalWindow from '../../common/ModalWindow/modalWindow';
+import Button from '../../common/Button/button';
 
 const Cart = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -77,20 +78,14 @@ const Cart = () => {
                                                 <h3>{cartItem.name}</h3>
                                             </Link>
                                             <p>{cartItem.ingredients}</p>
-                                            <button onClick={() => handleRemoveFromCart(cartItem)}>
-                                                Remove
-                                            </button>
+                                            <Button label='Remove' action={handleRemoveFromCart} payload={cartItem}/>
                                         </div>
                                     </div>
                                     <div className="cart-product-price">${cartItem.price}</div>
                                     <div className="cart-product-quantity">
-                                        <button onClick={() => handleDecreaseCart(cartItem)}>
-                                            -
-                                        </button>
+                                        <Button label='-' action={handleDecreaseCart} payload={cartItem} />
                                         <div className="count">{cartItem.cartQuantity}</div>
-                                        <button onClick={() => handleAddToCart(cartItem)}>
-                                            +
-                                        </button>
+                                        <Button label='+' action={handleAddToCart} payload={cartItem}/>
                                     </div>
                                     <div className="cart-product-total-price">
                                         ${cartItem.price * cartItem.cartQuantity}
@@ -99,18 +94,16 @@ const Cart = () => {
                             ))}
                             </div>
                             <div className="cart-summary">
-                                <button className="clear-btn" onClick={() => handleClearCart()}>
-                                    Clear Cart
-                                </button>
+                                <Button label='Clear Cart' className='btn__cart_clear' action={handleClearCart}/>
                                 <div className="cart-checkout">
                                     <div className="subtotal">
                                         <span>Total</span>
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
                                     {isLoggedIn
-                                        ? <button className='cart_checkout_btn' onClick={() => handlePlaceTheOrder()}>Check Out</button>
+                                        ? <Button label='Check Out' action={handlePlaceTheOrder} className='submit_btn'/>
                                         : <NavLink to='/login'>
-                                            <button className='cart_checkout_btn'> Sign in to Proceed </button>
+                                            <Button label='Sign in to Proceed' className='btn__cart_checkout'/>
                                         </NavLink>}
                                     {isOpen && <ModalWindow setIsOpen={setIsOpen} />}
                                     <div className="continue-shopping">

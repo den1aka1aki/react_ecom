@@ -36,7 +36,7 @@ const Pizza = ({ pizza }) => {
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
-                <Button action={handleAddToCart} payload={pizza} className='btn' label={'ADD TO CARD'}></Button>
+                <Button action={handleAddToCart} payload={pizza} className='btn' label={'ADD TO CARD'}/>
             </div>
 
         </>

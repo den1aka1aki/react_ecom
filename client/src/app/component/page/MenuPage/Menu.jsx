@@ -78,11 +78,7 @@ const Menu = () => {
                             </div>
                         </div>
                         <input className = 'search_bar' onChange={handleSearchQuery} type='text' name='searchQuery' value={searchQuery} placeholder='Search...'/>
-                        <Button
-                            className='dropbtn' label='Clear'
-                            onClick={clearFilter}>
-
-                        </Button>
+                        <Button className='dropbtn' label='Clear' action={clearFilter}/>
                     </div>
 
                     <div className='main__space'>

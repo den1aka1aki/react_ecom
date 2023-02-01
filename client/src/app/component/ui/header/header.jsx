@@ -42,7 +42,7 @@ const Header = () => {
                                 <Button className='header__btn' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
                             <NavLink to='/login' className='nav__link'>
-                                <Button className='header__btn' label={'Sign In'}></Button>
+                                <Button className='header__btn' label={'Sign In'}/>
                             </NavLink>
                         </div>
                     }

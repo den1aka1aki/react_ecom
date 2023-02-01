@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Button/button';
 
 const TextField = ({ label, type, name, value, onChange, error, placeholder }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -26,11 +27,11 @@ const TextField = ({ label, type, name, value, onChange, error, placeholder }) =
                     placeholder={placeholder}
                 />
                 {type === 'password' && (
-                    <button className='btn btn-outline-secondary'
+                    <Button className='btn__pswd_page'
+                        label={ <i className={'bi bi-eye' + (showPassword ? '-slash' : '')}></i>}
                         type='button'
-                        onClick={toggleShowPassword}>
-                        <i className={'bi bi-eye' + (showPassword ? '-slash' : '')}></i>
-                    </button>
+                        action={toggleShowPassword}>
+                    </Button>
                 )}
                 {error && <div className='invalid-feedback'>{error}</div>}
             </div>

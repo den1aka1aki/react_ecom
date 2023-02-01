@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { clearCart } from '../../../store/slices/basketSlice';
 import { useHistory } from 'react-router-dom';
+import Button from '../Button/button';
 const ModalWindow = ({ setIsOpen }) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -26,9 +27,7 @@ const ModalWindow = ({ setIsOpen }) => {
                     <p className='modalContent_text'>We hope to see you soon again</p>
 
                 </div>
-                <button className='closeBtn' onClick={() => handleClose()}>
-                    Close
-                </button>
+                <Button label='Close' className='closeBtn' action={handleClose}/>
             </div>
         </>
     );
