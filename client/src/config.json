@@ -1,6 +1,6 @@
 {
-  "apiEndpoint": "http://localhost:8080/api",
   "apiEndpoint2": "https://mondopizza.fly.dev/api",
+  "apiEndpoint": "http://localhost:8080/api",
   "isFireBase": false
 }
 

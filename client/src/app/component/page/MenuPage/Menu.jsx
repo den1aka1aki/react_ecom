@@ -5,6 +5,7 @@ import GroupList from '../../common/groupList';
 import './menu.css';
 import { useSelector } from 'react-redux';
 import { getDataStatus, getPizzas, getPizzasLoadingStatus } from '../../../store/slices/pizzaSlice';
+import Button from '../../common/Button/button';
 
 const Menu = () => {
     const types = ['red', 'white', 'vegetarian'];
@@ -68,7 +69,7 @@ const Menu = () => {
                 <div className='container'>
                     <div className='search_space'>
                         <div className="dropdown">
-                            <button onClick={myFunction} className="dropbtn">Category</button>
+                            <Button action={myFunction} className="dropbtn" label='Category'></Button>
                             <div id="myDropdown" className="dropdown-content">
                                 <GroupList
                                     selectedItem={selectedPizza}
@@ -77,11 +78,7 @@ const Menu = () => {
                             </div>
                         </div>
                         <input className = 'search_bar' onChange={handleSearchQuery} type='text' name='searchQuery' value={searchQuery} placeholder='Search...'/>
-                        <button
-                            className='card__pizza__cart__btn__search_space'
-                            onClick={clearFilter}>
-                        Clear
-                        </button>
+                        <Button className='dropbtn' label='Clear' action={clearFilter}/>
                     </div>
 
                     <div className='main__space'>

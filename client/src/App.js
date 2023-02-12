@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './app/component/ui/header/header';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './app/component/page/HomePage/Home';
 import Menu from './app/component/page/MenuPage/Menu';
 import Admin from './app/component/page/AdminPage/Admin';
@@ -16,6 +16,7 @@ import AddNewPizzaForm from './app/component/page/Pizza/AddNewPizza/addNewPizzaF
 import AdminProtectedRouter from './app/component/common/adminProtectedRouter';
 import { ToastContainer } from 'react-toastify';
 import MissingPage from './app/component/page/404Page/missingPage';
+import About from './app/component/page/AboutPage/About';
 
 function App () {
     return (
@@ -29,7 +30,7 @@ function App () {
                             <Route exact path ='/menu' component={Menu}/>
                             <Route exact path = '/pizza/:pizzaId?' component={PizzaCard}/>
                             <Route exact path ='/delivery' component={MissingPage}/>
-                            <Route exact path ='/about' component={MissingPage}/>
+                            <Route exact path ='/about' component={About}/>
                             <Route exact path = '/logout' component={LogOut}/>
                             <Route exact path ='/login' component={Login}/>
                             <Route exact path ='/cart' component={cart}/>
@@ -40,6 +41,7 @@ function App () {
                                     <Route exact path='/edit/:pizzaId?' component={EditPizzaPage}/>
                                 </AdminProtectedRouter>
                             </ProtectedRoute>
+                            <Redirect to='/'/>
                         </Switch>
                     </UsersLoader>
                 </PizzaLoader>

@@ -6,6 +6,7 @@ import Pizza from '../Pizza/Pizzas/pizza';
 import { useSelector } from 'react-redux';
 import { getPizzas } from '../../../store/slices/pizzaSlice';
 import { Link } from 'react-router-dom';
+import Button from '../../common/Button/button';
 
 const Home = () => {
     const pizza = useSelector(getPizzas());
@@ -18,7 +19,7 @@ const Home = () => {
                             <h2 className='title__main__page'>We Have The <b>Best pizza!</b></h2>
                             <p className='subTitle__main__page'>Time to enjoy our delicious pizza.</p>
                             <Link to="/menu">
-                                <button className='btn'>Order Online</button>
+                                <Button className='btn_main_page_photo' label={'Order Online'}></Button>
                             </Link>
                         </div>
                         <div className='main__img'>

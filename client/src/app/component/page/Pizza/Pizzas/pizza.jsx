@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCar, getTotals } from '../../../../store/slices/basketSlice';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Button from '../../../common/Button/button';
 
 const Pizza = ({ pizza }) => {
     const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Pizza = ({ pizza }) => {
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
-                <button onClick={() => handleAddToCart(pizza)} className='btn'>ADD TO CARD</button>
+                <Button action={handleAddToCart} payload={pizza} className='btn' label={'ADD TO CARD'}/>
             </div>
 
         </>

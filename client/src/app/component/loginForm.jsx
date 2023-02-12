@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../store/slices/userSlice';
 import '../component/page/HomePage/home.css';
-
+import Button from './common/Button/button';
 const LoginForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '', stayOn: false });
@@ -72,8 +72,8 @@ const LoginForm = () => {
                 onChange = {handleChange}
                 error = {errors.password}
             />
-            <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>Оставаться в системе</CheckBoxField>
-            <button className='submit_btn' type='submit' disabled={!isValid}>Submit</button>
+            <CheckBoxField value={data.stayOn} onChange={handleChange} name='stayOn'>Remain Logged In</CheckBoxField>
+            <Button label='Submit' action={undefined} className='btn w-100 mx-auto' btnType='submit' disabled={!isValid}>Submit</Button>
 
         </form>
     );

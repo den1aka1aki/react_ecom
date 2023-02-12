@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDataStatus, getPizzas, removePizza } from '../../../store/slices/pizzaSlice';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Button from '../../common/Button/button';
 
 const Admin = () => {
     const pizza = useSelector(getPizzas());
@@ -37,9 +38,7 @@ const Admin = () => {
             <div className='container'>
                 <h2 className='adminPage_title'>Administration Page</h2>
                 <div className='adminPage_add_space'>
-                    <button className='adminPage_btn' onClick={() => handleAdd()}>
-                            Add New Pizza
-                    </button>
+                    <Button label='Add New Pizza' className='btn mb-4' action={handleAdd}/>
                 </div>
                 <div className='main__space'>
                     <div className="adminPage_items">
@@ -54,12 +53,8 @@ const Admin = () => {
                                 </div>
                                 <div className="adminPage_price">${p.price}</div>
                                 <div>
-                                    <button className='adminPage_btn' onClick={() => handleEdit(p._id)}>
-                                            Edit
-                                    </button>
-                                    <button className='adminPage_btn' onClick={() => handleRemovePizza(p._id)} >
-                                            Delete
-                                    </button>
+                                    <Button className='btn mb-2' action={handleEdit} payload={p._id} label='Edit'/>
+                                    <Button className='btn mb-2' action={handleRemovePizza} payload={p._id} label='Delete'/>
                                 </div>
                             </div>
                         ))}
