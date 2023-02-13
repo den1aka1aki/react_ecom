@@ -15,21 +15,15 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors())
 app.use('/api', routes)
 const PORT = config.get('port') ?? 8080
-if (process.env.NODE_ENV === "production") {
-    app.use("/", express.static(path.join(__dirname, "client")));
-
-    const indexPath = path.join(__dirname, "client", "index.html");
-
-    app.get("*", (req, res) => {
-        res.sendFile(indexPath);
-    });
-}
-// if (process.env.NODE_ENV === 'production') {
-//   console.log('Production')
-// } else {
-//   console.log('Development')
+// if (process.env.NODE_ENV === "production") {
+//     app.use("/", express.static(path.join(__dirname, "client")));
+//
+//     const indexPath = path.join(__dirname, "client", "index.html");
+//
+//     app.get("*", (req, res) => {
+//         res.sendFile(indexPath);
+//     });
 // }
-
 async function start(){
     try{
         mongoose.connection.once('open', () => {
@@ -37,7 +31,7 @@ async function start(){
         })
             await mongoose.connect(config.get('mongoUri'))
             console.log(chalk.green(`MongoDB is connected on ${PORT}`))
-           await app.listen(PORT, () =>
+           await app.listen(process.env.PORT || 8080, () =>
             console.log(chalk.green(`Server has been started on port ${PORT}`))
         )
     } catch (e) {

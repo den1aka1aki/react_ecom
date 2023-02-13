@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.add16c6f.css",
-    "main.js": "/static/js/main.c29a1684.js",
+    "main.css": "/static/css/main.790d9fbb.css",
+    "main.js": "/static/js/main.97f820ab.js",
     "static/media/pizza-margherita.JPG": "/static/media/pizza-margherita.fadd6b4a99b69cdef281.JPG",
     "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
     "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
     "static/media/pizza.png": "/static/media/pizza.3f417c685919869e7ba2.png",
     "static/media/arrow-left.png": "/static/media/arrow-left.267be5cebf4f62273075.png",
     "index.html": "/index.html",
-    "main.add16c6f.css.map": "/static/css/main.add16c6f.css.map",
-    "main.c29a1684.js.map": "/static/js/main.c29a1684.js.map"
+    "main.790d9fbb.css.map": "/static/css/main.790d9fbb.css.map",
+    "main.97f820ab.js.map": "/static/js/main.97f820ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.add16c6f.css",
-    "static/js/main.c29a1684.js"
+    "static/css/main.790d9fbb.css",
+    "static/js/main.97f820ab.js"
   ]
 }
