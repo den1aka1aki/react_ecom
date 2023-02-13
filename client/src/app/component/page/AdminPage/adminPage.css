@@ -39,39 +39,6 @@ p{
     margin-left: auto;
     margin-right: auto;
  }
-.adminPage_add_btn{
-    display: block;
-    margin-bottom: 50px;
-    margin-left: auto;
-    text-transform: uppercase;
-    color: white;
-    width: 175px;
-    height: 50px;
-    background: #F44A25;
-    border-radius: 25px;
-    transition: color .2s linear, background .2s linear;
-}
-.adminPage_add_btn:hover{
-    color: #F44A25;
-    background-color: white;
-}
-.adminPage_btn{
-    text-transform: uppercase;
-    color: white;
-    margin-bottom: 20px;
-    width: 175px;
-    height: 50px;
-    border-color: transparent;
-    background: #F44A25;
-    border-radius: 25px;
-    transition: color .2s linear, background .2s linear;
-}
-.adminPage_btn:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-
 
 .adminPage_item {
     display: grid;
@@ -94,18 +61,5 @@ p{
 }
 .adminPage_item .adminPage_product h3 {
     font-weight: 400;
-}
-.adminPage_btn{
-    text-transform: uppercase;
-    color: white;
-    width: 175px;
-    height: 50px;
-    background: #F44A25;
-    border-radius: 25px;
-    transition: color .2s linear, background .2s linear;
-}
-.adminPage_btn:hover{
-    color: #F44A25;
-    background-color: white;
 }
 

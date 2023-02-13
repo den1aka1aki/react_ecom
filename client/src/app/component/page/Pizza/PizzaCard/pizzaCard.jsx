@@ -59,7 +59,7 @@ const PizzaCard = () => {
                                 : (null)}
                             <div className='product-price-btn'>
                                 <p><span>{pizza.price}</span>$</p>
-                                <Button action={handleAddToCart} payload={pizza} className='btn' label={'ADD TO CARD'}/>
+                                <Button action={handleAddToCart} payload={pizza} className={'btn'} label={'ADD TO CARD'}/>
                             </div>
                         </div>
                     </div>

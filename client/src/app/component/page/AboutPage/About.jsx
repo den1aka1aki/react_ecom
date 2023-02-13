@@ -5,7 +5,8 @@ const About = () => {
     return (
         <div>
            About
-            <Button label={'ept'} className={'header__btn__login'}/>
+            <Button label={'ept'} className={'btn btn-outline-primary'}/>
+            <button className={'btn btn-primary btn-lg'}> test </button>
         </div>
     );
 };
