@@ -6,7 +6,7 @@ const About = () => {
         <div>
            About
             <Button label={'ept'} className={'btn btn-outline-primary'}/>
-            <button className={'btn btn-primary btn-lg'}> test </button>
+            <button className={'btn round_btn'}> test </button>
         </div>
     );
 };

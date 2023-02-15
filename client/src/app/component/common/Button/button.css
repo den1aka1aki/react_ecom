@@ -1,44 +1,4 @@
-.btn_main_page_photo{
-    color: white;
-    font-size: 20px;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    border-color: transparent;
-    background: #F44A25;
-    border-radius: 25px;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.btn_main_page_photo:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-.dropbtn {
-    text-transform: uppercase;
-    border-radius: 25px;
-    width: 150px;
-    padding: 5px;
-    font-size: 15px;
-    border-color: transparent;
-    height: 40px;
-    position: center;
-    background-color: #F44A25;
-    color: white;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.dropbtn:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-
-
-.dropbtn:hover, .dropbtn:focus {
-
-}
-.btn{
+.round_btn{
     width: 150px;
     height: 50px;
     font-size: 15px;
@@ -50,47 +10,7 @@
     background: #F44A25;
     transition: color .2s linear, background .2s linear, border .2s linear
 }
-.btn:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-.btn:focus {
-    background: #F44A25;
-    color: white;
-    outline: none;
-    box-shadow: none;
-}
-.btn__pizza_card{
-    text-transform: uppercase;
-    border-radius: 25px;
-    width: 40px;
-    margin: 1px 5px;
-    font-size: 15px;
-    height: 40px;
-    position: center;
-    background-color: #F44A25;
-    border-color: transparent;
-    color: white;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.btn__pizza_card:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-.header__btn{
-    color: white;
-    align-items: center;
-    width: 90px;
-    height: 40px;
-    border-color: transparent;
-    background: #F44A25;
-    border-radius: 25px;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.header__btn:hover{
+.round_btn:hover{
     background-color: #f9f9f9;
     color:#F44A25;
     border: 0.5px solid rgb(244, 74, 37);
@@ -186,4 +106,31 @@
     background-color: #f9f9f9;
     color:#F44A25;
     border: 0.5px solid rgb(244, 74, 37);
+}
+
+
+
+.dropbtn {
+    text-transform: uppercase;
+    border-radius: 25px;
+    width: 150px;
+    padding: 5px;
+    font-size: 15px;
+    border-color: transparent;
+    height: 40px;
+    position: center;
+    background-color: #F44A25;
+    color: white;
+    cursor: pointer;
+    transition: color .2s linear, background .2s linear, border .2s linear
+}
+.dropbtn:hover{
+    background-color: #f9f9f9;
+    color:#F44A25;
+    border: 0.5px solid rgb(244, 74, 37);
+}
+
+
+.dropbtn:hover, .dropbtn:focus {
+
 }

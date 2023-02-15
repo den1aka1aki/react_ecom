@@ -19,7 +19,7 @@ const Home = () => {
                             <h2 className='title__main__page'>We Have The <b>Best pizza!</b></h2>
                             <p className='subTitle__main__page'>Time to enjoy our delicious pizza.</p>
                             <Link to="/menu">
-                                <Button className='btn_main_page_photo' label={'Order Online'}></Button>
+                                <Button className='btn round_btn' label={'Order Online'}></Button>
                             </Link>
                         </div>
                         <div className='main__img'>
