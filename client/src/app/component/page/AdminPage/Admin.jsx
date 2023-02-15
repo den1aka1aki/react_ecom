@@ -38,7 +38,7 @@ const Admin = () => {
             <div className='container'>
                 <h2 className='adminPage_title'>Administration Page</h2>
                 <div className='adminPage_add_space'>
-                    <Button label='Add New Pizza' className='btn mb-4' action={handleAdd}/>
+                    <Button label='Add New Pizza' className='btn round_btn mb-4' action={handleAdd}/>
                 </div>
                 <div className='main__space'>
                     <div className="adminPage_items">
@@ -53,8 +53,8 @@ const Admin = () => {
                                 </div>
                                 <div className="adminPage_price">${p.price}</div>
                                 <div>
-                                    <Button className='btn mb-2' action={handleEdit} payload={p._id} label='Edit'/>
-                                    <Button className='btn mb-2' action={handleRemovePizza} payload={p._id} label='Delete'/>
+                                    <Button className='btn round_btn w-auto m-1' action={handleEdit} payload={p._id} label='Edit'/>
+                                    <Button className='btn round_btn w-auto m-1' action={handleRemovePizza} payload={p._id} label='Delete'/>
                                 </div>
                             </div>
                         ))}

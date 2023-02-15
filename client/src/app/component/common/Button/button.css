@@ -1,7 +1,6 @@
 .round_btn{
-    width: 150px;
-    height: 50px;
     font-size: 15px;
+    padding: 15px;
     border-radius: 25px;
     color: white;
     align-items: center;
@@ -15,10 +14,9 @@
     color:#F44A25;
     border: 0.5px solid rgb(244, 74, 37);
 }
-.btn__cart_clear{
-    width: 130px;
-    height: 40px;
+.btn_rectangular{
     border-radius: 5px;
+    height: 40px;
     font-weight: 400;
     letter-spacing: 1.15px;
     border: 0.5px solid rgb(244, 74, 37);
@@ -28,27 +26,9 @@
     cursor: pointer;
     transition: color .2s linear, background .2s linear
 }
-.btn__cart_clear:hover{
+.btn_rectangular:hover{
     background-color: #F44A25;
     color: #f9f9f9;
-}
-.btn__cart_checkout{
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: 400;
-    letter-spacing: 1.15px;
-    background-color: #F44A25;
-    color: #f9f9f9;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.btn__cart_checkout:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
 }
 .closeBtn {
     position: absolute;
@@ -71,45 +51,6 @@
     color:#F44A25;
     border: 0.5px solid rgb(244, 74, 37);
 }
-.submit_btn{
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: 400;
-    letter-spacing: 1.15px;
-    background-color: #F44A25;
-    color: #f9f9f9;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.submit_btn:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-.btn__pswd_page{
-    width:80px;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: 400;
-    letter-spacing: 1.15px;
-    background-color: #F44A25;
-    color: #f9f9f9;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: color .2s linear, background .2s linear, border .2s linear
-}
-.btn__pswd_page:hover{
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
-
-
-
 .dropbtn {
     text-transform: uppercase;
     border-radius: 25px;

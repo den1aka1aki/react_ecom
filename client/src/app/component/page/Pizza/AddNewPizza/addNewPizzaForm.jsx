@@ -155,14 +155,14 @@ const AddNewPizzaForm = () => {
                         <button
                             type="submit"
                             disabled={!isValid}
-                            className="addNewPizzaPage_btn"
+                            className="btn round_btn m-2"
                             onClick={notify}
                         >
                                  Create
                         </button>
                         <button
                             type="submit"
-                            className="addNewPizzaPage_btn"
+                            className="btn round_btn m-2"
                             onClick={handleBack}
                         >
                             Go Back

@@ -165,14 +165,14 @@ const EditPizzaPage = () => {
                                 <button
                                     type="submit"
                                     disabled={!isValid}
-                                    className="editPage_btn"
+                                    className="btn round_btn m-2"
                                     onClick={notify}
                                 >
                                     Refresh
                                 </button>
                                 <button
                                     type="submit"
-                                    className="editPage_btn"
+                                    className="btn round_btn m-2"
                                     onClick={handleBack}
                                 >
                                     Go Back

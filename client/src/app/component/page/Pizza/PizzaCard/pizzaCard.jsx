@@ -47,7 +47,7 @@ const PizzaCard = () => {
                                                     <div className="">Total amount: {cart.cartTotalQuantity}</div>
                                                     <div className="">Total Quantity: {cart.cartTotalAmount} $</div>
                                                 </ul>
-                                                <Button className='btn round_btn w-25 m-1' label='+' action={handleAddToCart} payload={pizza}/>
+                                                <Button className='btn round_btn w-25  m-1' label='+' action={handleAddToCart} payload={pizza}/>
                                                 <Button className='btn round_btn w-25 m-1' label='-' action={handleDecreaseCart} payload={pizza}/>
 
                                             </div>
@@ -59,7 +59,7 @@ const PizzaCard = () => {
                                 : (null)}
                             <div className='product-price-btn'>
                                 <p><span>{pizza.price}</span>$</p>
-                                <Button action={handleAddToCart} payload={pizza} className={'btn round_btn'} label={'ADD TO CARD'}/>
+                                <Button action={handleAddToCart} payload={pizza} className={'btn round_btn w-auto'} label={'ADD TO CARD'}/>
                             </div>
                         </div>
                     </div>

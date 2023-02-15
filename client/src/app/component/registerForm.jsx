@@ -94,7 +94,7 @@ const RegisterForm = () => {
                 onChange = {handleChange}
                 error = {errors.password}
             />
-            <button className='submit_btn' type='submit' disabled={!isValid}>Submit</button>
+            <button className='btn btn_rectangular w-100 m-1' type='submit' disabled={!isValid}>Submit</button>
         </form>
     );
 };

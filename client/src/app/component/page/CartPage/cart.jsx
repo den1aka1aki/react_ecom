@@ -94,16 +94,16 @@ const Cart = () => {
                             ))}
                             </div>
                             <div className="cart-summary">
-                                <Button label='Clear Cart' className='btn__cart_clear' action={handleClearCart}/>
+                                <Button label='Clear Cart' className='btn btn_rectangular w-25' action={handleClearCart}/>
                                 <div className="cart-checkout">
                                     <div className="subtotal">
                                         <span>Total</span>
                                         <span className="amount">${cart.cartTotalAmount}</span>
                                     </div>
                                     {isLoggedIn
-                                        ? <Button label='Check Out' action={handlePlaceTheOrder} className='submit_btn'/>
+                                        ? <Button label='Check Out' action={handlePlaceTheOrder} className='btn w-100 btn_rectangular'/>
                                         : <NavLink to='/login'>
-                                            <Button label='Sign in to Proceed' className='btn__cart_checkout'/>
+                                            <Button label='Sign in to Proceed' className='btn w-100 btn_rectangular'/>
                                         </NavLink>}
                                     {isOpen && <ModalWindow setIsOpen={setIsOpen} />}
                                     <div className="continue-shopping">

@@ -27,7 +27,7 @@ const TextField = ({ label, type, name, value, onChange, error, placeholder }) =
                     placeholder={placeholder}
                 />
                 {type === 'password' && (
-                    <Button className='btn__pswd_page'
+                    <Button className='btn btn_rectangular btn-sm'
                         label={ <i className={'bi bi-eye' + (showPassword ? '-slash' : '')}></i>}
                         type='button'
                         action={toggleShowPassword}>
