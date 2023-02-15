@@ -14,6 +14,7 @@ const Menu = () => {
     const pizza = useSelector(getPizzas());
     const pizzasLoading = useSelector(getPizzasLoadingStatus());
     const pizzasStatus = useSelector(getDataStatus());
+    const [isOpen, setOpen] = useState(false);
     const clearFilter = () => {
         setSelectedPizza();
         setSearchQuery('');
@@ -42,35 +43,23 @@ const Menu = () => {
         }
 
         const filteredPizza = filterPizza(pizza);
-
+        const toggleMenu = () => {
+            setOpen(prevState => !prevState);
+        };
         const handlePizzaSelect = (item) => {
             if (searchQuery !== '') setSearchQuery('');
             setSelectedPizza(item);
         };
-        function myFunction () {
-            document.getElementById('myDropdown').classList.toggle('show');
-        }
-
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.getElementsByClassName('dropdown-content');
-                let i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        };
-
         return (
             <>
                 <div className='container'>
                     <div className='search_space'>
-                        <div className="dropdown">
-                            <Button action={myFunction} className="dropbtn" label='Category'></Button>
-                            <div id="myDropdown" className="dropdown-content">
+                        <div className="dropdown w-25" onClick={toggleMenu}>
+                            <button className="btn btn_rectangular w-100 dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category
+                            </button>
+                            <div className={'w-100 dropdown-menu' + (isOpen ? ' show' : '')} aria-labelledby="dropdownMenuButton">
                                 <GroupList
                                     selectedItem={selectedPizza}
                                     items={types}
@@ -78,7 +67,7 @@ const Menu = () => {
                             </div>
                         </div>
                         <input className = 'search_bar' onChange={handleSearchQuery} type='text' name='searchQuery' value={searchQuery} placeholder='Search...'/>
-                        <Button className='dropbtn' label='Clear' action={clearFilter}/>
+                        <Button className='btn btn_rectangular w-25' label='Clear' action={clearFilter}/>
                     </div>
 
                     <div className='main__space'>
