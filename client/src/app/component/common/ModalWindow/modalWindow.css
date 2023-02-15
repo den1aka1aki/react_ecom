@@ -57,25 +57,4 @@
 .modalContent_text{
     font-size: 20px;
 }
-.closeBtn {
-    position: absolute;
-    bottom: 20px;
-    right: 60px;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 4px 8px;
-    border-radius: 8px;
-    border: none;
-    font-size: 18px;
-    color: #2c3e50;
-    background-color: #F44A25;
-    color: #f9f9f9;
-    transition:  color .2s linear, background .2s linear, border .2s linear;
-    }
-
-.closeBtn:hover {
-    background-color: #f9f9f9;
-    color:#F44A25;
-    border: 0.5px solid rgb(244, 74, 37);
-}
 
