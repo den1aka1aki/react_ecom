@@ -70,7 +70,7 @@ const Menu = () => {
                         <Button className='btn btn_rectangular w-25' label='Clear' action={clearFilter}/>
                     </div>
 
-                    <div className='main__space'>
+                    <div className='container m-1'>
 
                         <div className='cards__placeholder'>
 

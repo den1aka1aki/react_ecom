@@ -13,18 +13,16 @@ const Home = () => {
     return (
         <>
             {pizza && mainImg && (
-                <div className='container'>
-                    <div className='main__space'>
-                        <div className='main__text'>
-                            <h2 className='title__main__page'>We Have The <b>Best pizza!</b></h2>
-                            <p className='subTitle__main__page'>Time to enjoy our delicious pizza.</p>
-                            <Link to="/menu">
-                                <Button className='btn round_btn' label={'Order Online'}></Button>
-                            </Link>
-                        </div>
-                        <div className='main__img'>
-                            <img className='main__photo' src={mainImg} alt="Loading"/>
-                        </div>
+                <div className='container '>
+                    <div className='main__text'>
+                        <h2 className='title__main__page'>We Have The <b>Best pizza!</b></h2>
+                        <p className='subTitle__main__page'>Time to enjoy our delicious pizza.</p>
+                        <Link to="/menu">
+                            <Button className='btn round_btn' label={'Order Online'}></Button>
+                        </Link>
+                    </div>
+                    <div className='main__img'>
+                        <img className='main__photo' src={mainImg} alt="Loading"/>
                     </div>
                     <div className='main__top__text'>Trending Recipes</div>
                     <div className='cards__placeholder'>

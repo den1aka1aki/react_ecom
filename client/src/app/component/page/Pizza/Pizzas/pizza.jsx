@@ -32,11 +32,11 @@ const Pizza = ({ pizza }) => {
             <div key={pizza._id} className='card__pizza'>
                 <Link className = 'card__pizza__link' to = {`/pizza/${pizza._id}`}>
                     <img className='card__pizza__img' alt='' src={pizza.img}/>
-                    <h4 className='card__pizza__title'>{pizza.name}</h4>
+                    <h4 className='h4 mb-4'>{pizza.name}</h4>
                 </Link>
                 <p className='card__pizza__discription'>{pizza.ingredients}</p>
                 <h5 className='card__pizza__price__tag'>{pizza.price} €</h5>
-                <Button action={handleAddToCart} payload={pizza} className='btn w-75 round_btn' label={'ADD TO CARD'}/>
+                <Button action={handleAddToCart} payload={pizza} className='btn round_btn m-4' label={'ADD TO CARD'}/>
             </div>
 
         </>

@@ -11,6 +11,9 @@
     color: #F44A25;
 }
 .card__pizza{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     margin-top: 15px;
     margin-right: 20px;
     margin-bottom: 50px;
