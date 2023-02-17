@@ -28,7 +28,7 @@ const Header = () => {
                     <NavBar/>
 
                     {isLoggedIn
-                        ? <div className='header__btn__icons'>
+                        ? <div className=''>
                             <NavLink className='nav__link' to="/cart">
                                 <Button className='btn round_btn w-auto' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
@@ -37,7 +37,7 @@ const Header = () => {
                             </NavLink>
                         </div>
 
-                        : <div className='header__btn__icons'>
+                        : <div className=''>
                             <NavLink className='nav__link' to="/cart">
                                 <Button className='btn round_btn w-auto' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>

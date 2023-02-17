@@ -44,6 +44,7 @@ p{
 }
 .header__logo__component{
     display: flex;
+    align-items: center;
 }
 .header__logo__title{
     font-size: 50px;
@@ -54,8 +55,7 @@ p{
     font-size: 15px;
     color: black;
     margin: 10px;
-    height: 40px;
-    width: 40px;
+    max-width: 60px;
 }
 .header__logo{
     font-size: 40px;
@@ -89,4 +89,17 @@ p{
 .nav__link:hover{
     opacity: 1;
 
+}
+@media(max-width:930px){
+    .header__logo__title{
+        font-size: 20px;
+        color:black;
+        text-decoration: none;
+    }
+    .header__logo__img{
+        font-size: 15px;
+        color: black;
+        margin: 10px;
+        max-width: 40px;
+    }
 }

@@ -50,3 +50,11 @@
     color:#F44A25;
     border: 0.5px solid rgb(244, 74, 37);
 }
+@media(max-width:930px){
+    .round_btn{
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 25px;
+
+    }
+}
