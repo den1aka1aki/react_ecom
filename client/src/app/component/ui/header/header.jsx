@@ -30,19 +30,19 @@ const Header = () => {
                     {isLoggedIn
                         ? <div className='header__menu__btn'>
                             <NavLink className='nav__link' to="/cart">
-                                <Button className='btn round_btn w-auto' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
+                                <Button className='btn round_btn ' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
                             <NavLink to='/logOut' className='nav__link'>
-                                <Button className='btn round_btn w-auto' label={'Log Out'}></Button>
+                                <Button className='btn round_btn ' label={'Log Out'}></Button>
                             </NavLink>
                         </div>
 
                         : <div className='header__menu__btn'>
                             <NavLink className='nav__link' to="/cart">
-                                <Button className='btn round_btn w-auto' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
+                                <Button className='btn round_btn' label={<i className="bi bi-cart"> {cartTotalQuantity} </i>}/>
                             </NavLink>
                             <NavLink to='/login' className='nav__link'>
-                                <Button className='btn round_btn w-auto' label={'Sign In'}/>
+                                <Button className='btn round_btn ' label={'Sign In'}/>
                             </NavLink>
                         </div>
                     }
